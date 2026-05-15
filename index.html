@@ -36,6 +36,30 @@ h1{
 .galerie img:hover{
     transform: scale(2.00);
 }
+
+.photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.legende{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.7);
+    color:white;
+    padding:10px;
+    opacity:0;
+    transition:opacity 0.3s ease;
+    font-size:18px;
+}
+
+.photo:hover .legende{
+    opacity:1;
+}
+
 </style>
 </head>
 
@@ -64,28 +88,6 @@ h1{
 
 </div>
 
-.photo{
-    position:relative;
-    overflow:hidden;
-    border-radius:15px;
-}
-
-.legende{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:rgba(0,0,0,0.7);
-    color:white;
-    padding:10px;
-    opacity:0;
-    transition:opacity 0.3s ease;
-    font-size:18px;
-}
-
-.photo:hover .legende{
-    opacity:1;
-}
 
 </body>
 </html>
