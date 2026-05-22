@@ -143,6 +143,46 @@ h1{
     border-radius:12px;
 }     
 
+.album-photos .mini-photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    transition:transform 0.3s ease;
+}
+
+.album-photos .mini-photo img{
+    width:180px;
+    border-radius:12px;
+    display:block;
+    transition:transform 0.3s ease;
+}
+
+.album-photos .mini-photo:hover{
+    transform:scale(1.12);
+    z-index:100;
+}
+
+.album-photos .mini-photo:hover img{
+    transform:scale(1.08);
+}
+
+.mini-legende{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.7);
+    color:white;
+    padding:8px;
+    font-size:14px;
+    opacity:0;
+    transition:opacity 0.3s ease;
+}
+
+.album-photos .mini-photo:hover .mini-legende{
+    opacity:1;
+}
+        
         @media (max-width:768px){
 
     .galerie img,
@@ -221,11 +261,25 @@ h1{
         <span class="legende">Cookies — voir plus</span>
     </summary>
 
-    <div class="album-photos">
+   <div class="album-photos">
+
+    <div class="mini-photo">
         <img src="images/IMG_0009.JPEG">
-        <img src="images/IMG_0010.JPEG">
-        <img src="images/IMG_0011.JPEG">
+        <div class="mini-legende">Cookie Fleur de Sel</div>
     </div>
+
+    <div class="mini-photo">
+        <img src="images/IMG_0010.JPEG">
+        <div class="mini-legende">Cookie Spéculoos</div>
+    </div>
+
+    <div class="mini-photo">
+        <img src="images/IMG_0011.JPEG">
+        <div class="mini-legende">Muffin Praliné Noisette</div>
+    </div>
+
+</div>
+    
 </details>
 </div>
 <script>
