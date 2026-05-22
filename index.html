@@ -16,6 +16,7 @@ body{
     margin:0;
     padding:40px;
     text-align:center;
+    overflow-x:hidden;
     cursor:url("images/cookie-cursor2.png"), auto;
 }
 
@@ -157,15 +158,6 @@ h1{
     transition:transform 0.3s ease;
 }
 
-.album-photos .mini-photo:hover{
-    transform:scale(1.12);
-    z-index:100;
-}
-
-.album-photos .mini-photo:hover img{
-    transform:scale(1.08);
-}
-
 .mini-legende{
     position:absolute;
     bottom:0;
@@ -179,6 +171,35 @@ h1{
     transition:opacity 0.3s ease;
 }
 
+.mini-photo{
+    position:relative;
+    overflow:visible;
+    transition:transform 0.3s ease;
+    cursor:pointer;
+}
+
+.mini-photo img{
+    width:180px;
+    border-radius:12px;
+    display:block;
+    object-fit:cover;
+    transition:transform 0.3s ease;
+}
+
+.mini-photo:hover{
+    transform: scale(1.35);
+    z-index:200;
+    box-shadow:0 12px 30px rgba(0,0,0,0.35);
+}
+
+.mini-photo:hover img{
+    transform:scale(1.08);
+}
+        
+.album-photos{
+    overflow:visible;
+}
+        
 .album-photos .mini-photo:hover .mini-legende{
     opacity:1;
 }
