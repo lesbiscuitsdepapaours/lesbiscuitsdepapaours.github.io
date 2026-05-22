@@ -71,6 +71,51 @@ h1{
     opacity:1;
 }
 
+.album{
+    position:relative;
+    border-radius:15px;
+    cursor:url("images/cookie-cursor2.png"), auto;
+}
+
+.album summary{
+    list-style:none;
+    position:relative;
+}
+
+.album summary::-webkit-details-marker{
+    display:none;
+}
+
+.album summary img{
+    width:300px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.album-photos{
+    display:none;
+    position:absolute;
+    top:105%;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff8ee;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    gap:12px;
+    z-index:50;
+}
+
+.album:hover .album-photos,
+.album[open] .album-photos{
+    display:flex;
+}
+
+.album-photos img{
+    width:180px;
+    border-radius:12px;
+}
+        
 </style>
 </head>
 
@@ -99,6 +144,19 @@ h1{
 
 </div>
 
+    <details class="album">
+    <summary>
+        <img src="images/IMG_0009.JPEG" alt="Cookies">
+        <span class="legende">Cookies — voir plus</span>
+    </summary>
+
+    <div class="album-photos">
+        <img src="images/IMG_0009.JPEG">
+        <img src="images/IMG_0010.JPEG">
+        <img src="images/IMG_0011.JPEG">
+    </div>
+</details>
+    
 
 </body>
 </html>
