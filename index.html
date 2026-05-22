@@ -250,6 +250,48 @@ h1{
 }
             
 }
+
+.lightbox{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(255,255,255,0.15);
+    animation:zoomLightbox 0.3s ease;
+}
+.lightbox{
+    cursor:pointer;
+    backdrop-filter: blur(6px);
+}
+
+.lightbox img{
+    object-fit:contain;
+}
+@keyframes zoomLightbox{
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+        
 </style>
 </head>
 
@@ -323,15 +365,40 @@ h1{
 -->
     
 </div>
-<script>
+
+    <script>
+
 document.querySelectorAll('.photo, .album').forEach(function(element){
     element.addEventListener('click', function(){
         element.classList.toggle('zoom-mobile');
     });
 });
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('img').forEach(img => {
+
+    img.addEventListener('click', function(e){
+
+        e.stopPropagation();
+
+        lightbox.style.display = 'flex';
+        lightboxImg.src = this.src;
+    });
+
+});
+
+lightbox.addEventListener('click', function(){
+    lightbox.style.display = 'none';
+});
+
 </script>
+
    
-    
+<div class="lightbox" id="lightbox">
+    <img id="lightbox-img">
+</div>    
 
 </body>
 </html>
