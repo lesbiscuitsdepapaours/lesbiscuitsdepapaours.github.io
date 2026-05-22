@@ -180,6 +180,14 @@ h1{
 .album{
     -webkit-tap-highlight-color: transparent;
 }
+
+.photo.zoom-mobile,
+.album.zoom-mobile{
+    transform: scale(1.15);
+    z-index:100;
+    position:relative;
+}
+            
 }
 </style>
 </head>
@@ -220,7 +228,13 @@ h1{
     </div>
 </details>
 </div>
-
+<script>
+document.querySelectorAll('.photo, .album').forEach(function(element){
+    element.addEventListener('click', function(){
+        element.classList.toggle('zoom-mobile');
+    });
+});
+</script>
    
     
 
