@@ -58,6 +58,7 @@ h1
 .photo
 {
     position:relative;
+    overflow:hidden;
     border-radius:15px;
     cursor:url("images/cookie-cursor2.png"), auto;
     transition: transform 0.4s ease;
@@ -66,15 +67,18 @@ h1
 .legende
 {
     position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
+    bottom:12px;
+    left:12px;
+    right:12px;
+    width:auto;
     background:rgba(0,0,0,0.7);
     color:white;
     padding:10px;
     opacity:0;
     transition:opacity 0.3s ease;
     font-size:18px;
+    border-radius:12px;
+    box-sizing:border-box;
 }
 
 .photo:hover .legende
@@ -170,6 +174,7 @@ h1
     overflow:hidden;
     border-radius:12px;
     transition:transform 0.3s ease;
+    width:180px;
 }
 
 .album-photos .mini-photo img
