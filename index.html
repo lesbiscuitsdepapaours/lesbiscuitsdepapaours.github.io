@@ -135,6 +135,30 @@ h1{
     width:180px;
     border-radius:12px;
 }     
+
+        @media (max-width:768px){
+
+    .galerie img,
+    .album summary img{
+        width:90vw;
+        max-width:320px;
+    }
+
+    .photo:hover,
+    .album:hover{
+        transform:none;
+    }
+
+    .album-photos{
+        position:static;
+        transform:none;
+        margin-top:15px;
+    }
+
+    .album-photos img{
+        width:120px;
+    }
+}
 </style>
 </head>
 
