@@ -241,14 +241,7 @@ h1{
 .album{
     -webkit-tap-highlight-color: transparent;
 }
-
-.photo.zoom-mobile,
-.album.zoom-mobile{
-    transform: scale(1.15);
-    z-index:100;
-    position:relative;
-}
-            
+           
 }
 
 .lightbox{
@@ -366,23 +359,18 @@ h1{
     
 </div>
 
-    <script>
+  
+<div class="lightbox" id="lightbox">
+    <img id="lightbox-img">
+</div>    
 
-document.querySelectorAll('.photo, .album').forEach(function(element){
-    element.addEventListener('click', function(){
-        element.classList.toggle('zoom-mobile');
-    });
-});
-
+<script>
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-document.querySelectorAll('img').forEach(img => {
-
+document.querySelectorAll('.photo img, .mini-photo img, .album summary img').forEach(img => {
     img.addEventListener('click', function(e){
-
         e.stopPropagation();
-
         lightbox.style.display = 'flex';
         lightboxImg.src = this.src;
     });
@@ -394,11 +382,6 @@ lightbox.addEventListener('click', function(){
 });
 
 </script>
-
-   
-<div class="lightbox" id="lightbox">
-    <img id="lightbox-img">
-</div>    
-
+    
 </body>
 </html>
