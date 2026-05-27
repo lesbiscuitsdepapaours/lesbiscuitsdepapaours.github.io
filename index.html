@@ -368,6 +368,62 @@ h1
 {
     display:none;
 }
+
+/* =========================
+   RÉSEAUX SOCIAUX
+========================= */
+
+.reseaux
+{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.social-btn
+{
+    text-decoration:none;
+
+    background:#6b3f1d;
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:14px;
+
+    font-size:18px;
+    font-weight:400;
+
+    transition:all 0.25s ease;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.18);
+}
+
+.social-btn:hover
+{
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+
+.facebook
+{
+    background:#1877f2;
+}
+
+.instagram
+{
+    background:linear-gradient(
+        45deg,
+        #f09433,
+        #e6683c,
+        #dc2743,
+        #cc2366,
+        #bc1888
+    );
+}
         
 </style>
 </head>
@@ -377,6 +433,19 @@ h1
 <h1>🍪 Les Biscuits de Papa Ours 🐻</h1>
 
 <p>Bienvenue dans ma biscuiterie artisanale.</p>
+
+<div class="reseaux">
+
+    <a href="https://facebook.com/lesbiscuitsdepapaours" target="_blank" class="social-btn facebook">
+        📘 Facebook
+    </a>
+
+    <a href="https://instagram.com/les.biscuits.de.papa.ours" target="_blank" class="social-btn instagram">
+        📸 Instagram
+    </a>
+
+</div>
+    
 
 <div class="galerie">
 
