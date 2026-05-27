@@ -66,7 +66,7 @@ h1
 .photo:hover,
 .photo:active
 {
-    transform: scale(1.18);
+    transform: scale(1.10);
     z-index:10;
 }
 
@@ -164,7 +164,7 @@ h1
     background:rgba(0,0,0,0.45);
     color:white;
     padding:8px 10px;
-    font-size:18px;
+    font-size:16px;
     font-weight:400;
     text-align:center;
     backdrop-filter: blur(4px);
@@ -222,7 +222,7 @@ h1
 
 .mini-photo:hover
 {
-    transform: scale(1.35);
+    transform: scale(1.22);
     z-index:500;
     box-shadow:0 18px 40px rgba(0,0,0,0.45);
 }
@@ -249,7 +249,8 @@ h1
 }
                
 @media (max-width:768px)
-{        
+{   
+    
 .album-photos .mini-photo
 {
     width:120px;
@@ -367,18 +368,14 @@ h1
 .social-btn
 {
     text-decoration:none;
-
     color:white;
-
     padding:12px 22px;
-
     border-radius:14px;
-
     font-size:18px;
     font-weight:400;
-
-    transition:0.25s ease;
-
+    transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
     box-shadow:0 4px 10px rgba(0,0,0,0.18);
 }
 
