@@ -19,7 +19,14 @@ body
     text-align:center;
     overflow-x:hidden;
     cursor:url("images/cookie-cursor2.png"), auto;
+    background:
+    linear-gradient(rgba(245,241,234,0.96),
+                    rgba(245,241,234,0.96)),
+    url("images/papier.jpg");
+
+    background-size:cover;
 }
+
 
 h1
 {
@@ -85,8 +92,8 @@ h1
     bottom:20px;
     background:rgba(0,0,0,0.45);
     color:white;
-    padding:10px 14px;
-    font-size:18px;
+    padding:8px 10px;
+    font-size:16px;
     font-weight:400;
     text-align:center;
     backdrop-filter: blur(4px);
@@ -170,7 +177,7 @@ h1
     bottom:20px;
     background:rgba(0,0,0,0.45);
     color:white;
-    padding:10px 14px;
+    padding:8px 10px;
     font-size:18px;
     font-weight:400;
     text-align:center;
@@ -210,8 +217,8 @@ h1
     bottom:0;
     background:rgba(0,0,0,0.45);
     color:white;
-    padding:8px;
-    font-size:14px;
+    padding:8px 10px;
+    font-size:16px;
     font-weight:400;
     text-align:center;
     backdrop-filter: blur(4px);
@@ -370,9 +377,87 @@ h1
 }
 
 /* =========================
-   RÉSEAUX SOCIAUX
+   RÉSEAUX
 ========================= */
 
+.reseaux
+{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+.social-btn
+{
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:14px;
+
+    font-size:18px;
+    font-weight:400;
+
+    transition:0.25s ease;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.18);
+}
+
+.social-btn:hover
+{
+    transform:translateY(-3px) scale(1.05);
+}
+
+.facebook
+{
+    background:#1877f2;
+}
+
+.instagram
+{
+    background:linear-gradient(
+        45deg,
+        #f09433,
+        #e6683c,
+        #dc2743,
+        #cc2366,
+        #bc1888
+    );
+}
+
+
+/* =========================
+   INTRODUCTION
+========================= */
+
+.intro
+{
+    max-width:800px;
+    margin:0 auto 35px auto;
+}
+
+.intro-texte
+{
+    font-size:24px;
+    color:#5c3b1e;
+    margin-bottom:10px;
+}
+
+.intro-texte2
+{
+    font-size:18px;
+    color:#7a5a3d;
+    line-height:1.5;
+}
+
+/* =========================
+   RÉSEAUX SOCIAUX
+========================= */
+/*
 .reseaux
 {
     display:flex;
@@ -424,16 +509,50 @@ h1
         #bc1888
     );
 }
-        
+*/        
 </style>
 </head>
 
 <body>
-
+<!--
 <h1>🍪 Les Biscuits de Papa Ours 🐻</h1>
 
 <p>Bienvenue dans ma biscuiterie artisanale.</p>
+-->
 
+<div class="intro">
+
+    <p class="intro-texte">
+        🍪 Biscuits artisanaux sucrés & salés,
+        préparés avec gourmandise par Papa Ours 🐻
+    </p>
+
+    <p class="intro-texte2">
+        Cookies, muffins, sablés, crackers, madeleines…
+        Des créations faites maison avec passion.
+    </p>
+
+</div>
+
+<div class="reseaux">
+
+    <a href="https://facebook.com/lesbiscuitsdepapaours"
+       target="_blank"
+       class="social-btn facebook">
+
+       📘 Facebook
+    </a>
+
+    <a href="https://instagram.com/lesbiscuitsdepapaours"
+       target="_blank"
+       class="social-btn instagram">
+
+       📸 Instagram
+    </a>
+
+</div>
+
+<!--
 <div class="reseaux">
 
     <a href="https://facebook.com/lesbiscuitsdepapaours" target="_blank" class="social-btn facebook">
@@ -445,7 +564,7 @@ h1
     </a>
 
 </div>
-    
+-->    
 
 <div class="galerie">
 
