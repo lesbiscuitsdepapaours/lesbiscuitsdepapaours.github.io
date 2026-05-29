@@ -1,55 +1,43 @@
 <h2>📝 Demande de devis</h2>
 
-<form action="https://formsubmit.co/lesbiscuitsdepapaour@gmail.com" method="POST" class="formulaire">
+<form action="https://formsubmit.co/TON_EMAIL" method="POST" class="formulaire">
 
-    <input type="text"
-           name="Nom"
-           placeholder="Nom"
-           required>
+    <input type="text" name="Nom" placeholder="Nom" required>
 
-    <input type="text"
-           name="Prénom"
-           placeholder="Prénom"
-           required>
+    <input type="text" name="Prénom" placeholder="Prénom" required>
 
-    <input type="tel"
-           name="Téléphone"
-           placeholder="Numéro de téléphone"
-           required>
+    <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
 
-    <input type="email"
-           name="Email"
-           placeholder="Adresse e-mail"
-           required>
+    <input type="email" name="Email" placeholder="Adresse e-mail" required>
 
-    <select id="categorie"
-            name="Catégorie"
-            required>
+    <div id="lignes-commande">
 
-        <option value="">Choisir une catégorie</option>
+        <div class="ligne-produit">
 
-        <option value="Cookies">Cookies</option>
-        <option value="Sablés">Sablés</option>
-        <option value="Shortbread">Shortbread</option>
+            <select name="Catégorie 1" class="categorie-produit" required>
+                <option value="">Choisir une catégorie</option>
+                <option value="Cookies">Cookies</option>
+                <option value="Sablés">Sablés</option>
+                <option value="Shortbread">Shortbread</option>
+            </select>
 
-    </select>
+            <select name="Produit 1" class="produit-select" required>
+                <option value="">Choisir un produit</option>
+            </select>
 
-    <select id="produit"
-            name="Produit"
-            required
-            style="display:none;">
+            <input type="number"
+                   name="Quantité 1"
+                   min="1"
+                   placeholder="Quantité"
+                   required>
 
-        <option value="">Choisir un produit</option>
+        </div>
 
-    </select>
+    </div>
 
-    <input id="quantite"
-           type="number"
-           name="Quantité"
-           min="1"
-           placeholder="Nombre souhaité"
-           required
-           style="display:none;">
+    <button type="button" id="ajouter-produit" class="ajouter-btn">
+        ➕ Ajouter un autre produit
+    </button>
 
     <button type="submit">
         📨 Envoyer la demande
@@ -58,14 +46,9 @@
 </form>
 
 <style>
-
-/* =========================
-   FORMULAIRE DE DEVIS
-========================= */
-
 .formulaire
 {
-    max-width:600px;
+    max-width:650px;
     margin:30px auto;
     display:flex;
     flex-direction:column;
@@ -82,6 +65,17 @@
     font-size:16px;
     box-shadow:0 2px 8px rgba(0,0,0,0.1);
     box-sizing:border-box;
+}
+
+.ligne-produit
+{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:18px;
+    padding:18px;
+    background:rgba(255,255,255,0.55);
+    border-radius:16px;
 }
 
 .formulaire button
@@ -104,10 +98,13 @@
     box-shadow:0 8px 18px rgba(0,0,0,0.2);
 }
 
+.ajouter-btn
+{
+    background:#8a5a2b;
+}
 </style>
 
 <script>
-
 const produits =
 {
     "Cookies":
@@ -142,34 +139,62 @@ const produits =
     ]
 };
 
-const categorie = document.getElementById("categorie");
-const produit = document.getElementById("produit");
-const quantite = document.getElementById("quantite");
+let numeroLigne = 1;
 
-categorie.addEventListener("change", function()
+function activerLigne(ligne)
 {
-    produit.innerHTML =
-        '<option value="">Choisir un produit</option>';
+    const categorie = ligne.querySelector(".categorie-produit");
+    const produit = ligne.querySelector(".produit-select");
 
-    if(this.value === "")
+    categorie.addEventListener("change", function()
     {
-        produit.style.display = "none";
-        quantite.style.display = "none";
-        return;
-    }
+        produit.innerHTML = '<option value="">Choisir un produit</option>';
 
-    produits[this.value].forEach(function(nomProduit)
-    {
-        const option = document.createElement("option");
+        if(this.value === "")
+        {
+            return;
+        }
 
-        option.value = nomProduit;
-        option.textContent = nomProduit;
-
-        produit.appendChild(option);
+        produits[this.value].forEach(function(nomProduit)
+        {
+            const option = document.createElement("option");
+            option.value = nomProduit;
+            option.textContent = nomProduit;
+            produit.appendChild(option);
+        });
     });
+}
 
-    produit.style.display = "block";
-    quantite.style.display = "block";
+document.querySelectorAll(".ligne-produit").forEach(activerLigne);
+
+document.getElementById("ajouter-produit").addEventListener("click", function()
+{
+    numeroLigne++;
+
+    const nouvelleLigne = document.createElement("div");
+    nouvelleLigne.className = "ligne-produit";
+
+    nouvelleLigne.innerHTML = `
+        <select name="Catégorie ${numeroLigne}" class="categorie-produit" required>
+            <option value="">Choisir une catégorie</option>
+            <option value="Cookies">Cookies</option>
+            <option value="Sablés">Sablés</option>
+            <option value="Shortbread">Shortbread</option>
+        </select>
+
+        <select name="Produit ${numeroLigne}" class="produit-select" required>
+            <option value="">Choisir un produit</option>
+        </select>
+
+        <input type="number"
+               name="Quantité ${numeroLigne}"
+               min="1"
+               placeholder="Quantité"
+               required>
+    `;
+
+    document.getElementById("lignes-commande").appendChild(nouvelleLigne);
+
+    activerLigne(nouvelleLigne);
 });
-
 </script>
