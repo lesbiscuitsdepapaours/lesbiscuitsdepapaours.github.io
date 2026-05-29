@@ -1,63 +1,154 @@
-<h2>📝 Demande de devis</h2>
+<!DOCTYPE html>
+<html lang="fr">
 
-<form action="https://formsubmit.co/lesbiscuitsdepapaours@gmail.com" method="POST" class="formulaire">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <input type="text" name="Nom" placeholder="Nom" required>
+<title>Commander — Les Biscuits de Papa Ours</title>
 
-    <input type="text" name="Prénom" placeholder="Prénom" required>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
 
-    <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
-
-    <input type="email" name="Email" placeholder="Adresse e-mail" required>
-
-    <div id="lignes-commande">
-
-        <div class="ligne-produit">
-
-            <select name="Catégorie 1" class="categorie-produit" required>
-                <option value="">Choisir une catégorie</option>
-                <option value="Cookies">Cookies</option>
-                <option value="Sablés">Sablés</option>
-                <option value="Shortbread">Shortbread</option>
-            </select>
-
-            <select name="Produit 1" class="produit-select" required>
-                <option value="">Choisir un produit</option>
-            </select>
-
-            <input type="number"
-                   name="Quantité 1"
-                   min="1"
-                   placeholder="Quantité"
-                   required>
-
-        </div>
-
-    </div>
-
-    <button type="button" id="ajouter-produit" class="ajouter-btn">
-        ➕ Ajouter un autre produit
-    </button>
-
-    <button type="submit">
-        📨 Envoyer la demande
-    </button>
-
-</form>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-.formulaire
-{
-    max-width:650px;
-    margin:30px auto;
+body{
+    font-family:'Fredoka', sans-serif;
+    margin:0;
+    padding:40px;
+    text-align:center;
+    color:#5c3b1e;
+    background:
+    linear-gradient(rgba(245,241,234,0.96), rgba(245,241,234,0.96)),
+    url("images/papier.jpg");
+    background-size:cover;
+}
+
+.intro{
+    max-width:850px;
+    margin:0 auto 35px auto;
+}
+
+.intro h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.intro p{
+    font-size:18px;
+    color:#7a5a3d;
+}
+
+.retour{
+    display:inline-block;
+    margin-bottom:30px;
+    color:#5c3b1e;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.retour:hover{
+    text-decoration:underline;
+}
+
+.produits{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.produit{
+    position:relative;
+    width:230px;
+    border-radius:16px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    background:white;
+}
+
+.produit:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 10px 22px rgba(0,0,0,0.28);
+}
+
+.produit img{
+    width:230px;
+    height:230px;
+    object-fit:cover;
+    display:block;
+}
+
+.produit .nom{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.48);
+    color:white;
+    padding:9px;
+    font-size:15px;
+    font-weight:400;
+    backdrop-filter:blur(4px);
+}
+
+.panier-box{
+    max-width:760px;
+    margin:50px auto 0 auto;
+    background:rgba(255,255,255,0.7);
+    padding:28px;
+    border-radius:22px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.panier-box h2{
+    margin-top:0;
+}
+
+.panier-vide{
+    color:#7a5a3d;
+}
+
+.ligne-panier{
+    display:grid;
+    grid-template-columns:1fr auto auto auto;
+    gap:10px;
+    align-items:center;
+    background:#fff8ee;
+    padding:12px;
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+.ligne-panier button{
+    border:none;
+    background:#6b3f1d;
+    color:white;
+    border-radius:10px;
+    padding:8px 12px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.supprimer{
+    background:#9b2f2f !important;
+}
+
+.formulaire{
+    max-width:600px;
+    margin:30px auto 0 auto;
     display:flex;
     flex-direction:column;
     gap:15px;
 }
 
-.formulaire input,
-.formulaire select
-{
+.formulaire input{
     padding:14px;
     border:none;
     border-radius:12px;
@@ -67,19 +158,7 @@
     box-sizing:border-box;
 }
 
-.ligne-produit
-{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-bottom:18px;
-    padding:18px;
-    background:rgba(255,255,255,0.55);
-    border-radius:16px;
-}
-
-.formulaire button
-{
+.formulaire button{
     background:#6b3f1d;
     color:white;
     border:none;
@@ -87,114 +166,302 @@
     padding:14px;
     font-size:18px;
     cursor:pointer;
-    transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.formulaire button:hover
-{
+.formulaire button:hover{
     transform:translateY(-2px);
     box-shadow:0 8px 18px rgba(0,0,0,0.2);
 }
 
-.ajouter-btn
-{
-    background:#8a5a2b;
+.footer{
+    margin-top:60px;
+    padding:25px;
+    color:#7a5a3d;
+    font-size:15px;
+}
+
+@media (max-width:768px){
+    body{
+        padding:25px;
+    }
+
+    .produit{
+        width:42vw;
+    }
+
+    .produit img{
+        width:42vw;
+        height:42vw;
+    }
+
+    .produit .nom{
+        font-size:13px;
+    }
+
+    .ligne-panier{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
 }
 </style>
+</head>
+
+<body>
+
+<div class="intro">
+    <h1>📦 Commander chez Papa Ours 🐻</h1>
+    <p>Cliquez sur les photos pour ajouter des produits à votre demande de devis.</p>
+</div>
+
+<a href="index.html" class="retour">← Retour à la galerie</a>
+
+<div class="produits">
+
+    <div class="produit" data-nom="Cookie Bounty">
+        <img src="images/LBPO-36.webp">
+        <div class="nom">Cookie Bounty</div>
+    </div>
+
+    <div class="produit" data-nom="Cookie Sirop d'érable & noix de pécan">
+        <img src="images/LBPO-35.webp">
+        <div class="nom">Cookie Sirop d'érable & noix de pécan</div>
+    </div>
+
+    <div class="produit" data-nom="Crackers à la moutarde à l'ancienne">
+        <img src="images/LBPO-34.webp">
+        <div class="nom">Crackers moutarde ancienne</div>
+    </div>
+
+    <div class="produit" data-nom="Crackers paprika fumé">
+        <img src="images/LBPO-33.webp">
+        <div class="nom">Crackers paprika fumé</div>
+    </div>
+
+    <div class="produit" data-nom="Cookie aux chips">
+        <img src="images/LBPO-31.webp">
+        <div class="nom">Cookie aux chips</div>
+    </div>
+
+    <div class="produit" data-nom="Cookie au beurre de cacahuète">
+        <img src="images/LBPO-30.webp">
+        <div class="nom">Cookie beurre de cacahuète</div>
+    </div>
+
+    <div class="produit" data-nom="Cookie Oréo">
+        <img src="images/LBPO-29.webp">
+        <div class="nom">Cookie Oréo</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés XXL à l'anis">
+        <img src="images/LBPO-28.webp">
+        <div class="nom">Sablés XXL à l'anis</div>
+    </div>
+
+    <div class="produit" data-nom="Cookies chocolat & café">
+        <img src="images/LBPO-27.webp">
+        <div class="nom">Cookies chocolat & café</div>
+    </div>
+
+    <div class="produit" data-nom="Muffins figues & noix">
+        <img src="images/LBPO-25.webp">
+        <div class="nom">Muffins figues & noix</div>
+    </div>
+
+    <div class="produit" data-nom="Cookies Spéculoos">
+        <img src="images/LBPO-24.webp">
+        <div class="nom">Cookies Spéculoos</div>
+    </div>
+
+    <div class="produit" data-nom="Cookies chocolat noir & fleur de sel">
+        <img src="images/LBPO-24.webp">
+        <div class="nom">Cookies chocolat fleur de sel</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés fleur d'oranger & amandes">
+        <img src="images/LBPO-23.webp">
+        <div class="nom">Sablés fleur d'oranger</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés zeste de citron">
+        <img src="images/LBPO-23.webp">
+        <div class="nom">Sablés zeste de citron</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés chocolat & Earl Grey">
+        <img src="images/LBPO-21.webp">
+        <div class="nom">Sablés chocolat & Earl Grey</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés noisette">
+        <img src="images/LBPO-21.webp">
+        <div class="nom">Sablés noisette</div>
+    </div>
+
+    <div class="produit" data-nom="Cookies schoko bons">
+        <img src="images/LBPO-20.webp">
+        <div class="nom">Cookies schoko bons</div>
+    </div>
+
+    <div class="produit" data-nom="Cookies abricot & pistache">
+        <img src="images/LBPO-20.webp">
+        <div class="nom">Cookies abricot & pistache</div>
+    </div>
+
+    <div class="produit" data-nom="Cookies lavande & miel">
+        <img src="images/LBPO-20.webp">
+        <div class="nom">Cookies lavande & miel</div>
+    </div>
+
+    <div class="produit" data-nom="Madeleines pesto & pignons de pins">
+        <img src="images/LBPO-14.webp">
+        <div class="nom">Madeleines pesto & pignons</div>
+    </div>
+
+    <div class="produit" data-nom="Madeleines olives noires & origan">
+        <img src="images/LBPO-14.webp">
+        <div class="nom">Madeleines olives & origan</div>
+    </div>
+
+    <div class="produit" data-nom="Madeleines paprika fumé">
+        <img src="images/LBPO-14.webp">
+        <div class="nom">Madeleines paprika fumé</div>
+    </div>
+
+    <div class="produit" data-nom="Madeleines moutarde ancienne">
+        <img src="images/LBPO-14.webp">
+        <div class="nom">Madeleines moutarde ancienne</div>
+    </div>
+
+    <div class="produit" data-nom="Muffins Caramel & Noix">
+        <img src="images/LBPO-13.webp">
+        <div class="nom">Muffins caramel & noix</div>
+    </div>
+
+    <div class="produit" data-nom="Muffins Café & Chocolat">
+        <img src="images/LBPO-12.webp">
+        <div class="nom">Muffins café & chocolat</div>
+    </div>
+
+    <div class="produit" data-nom="Mini Muffins aux éclats de chocolat">
+        <img src="images/LBPO-11.webp">
+        <div class="nom">Mini muffins chocolat</div>
+    </div>
+
+    <div class="produit" data-nom="Tartelettes à la noix de coco">
+        <img src="images/LBPO-10.webp">
+        <div class="nom">Tartelettes noix de coco</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés aux noisettes">
+        <img src="images/LBPO-09.webp">
+        <div class="nom">Sablés aux noisettes</div>
+    </div>
+
+    <div class="produit" data-nom="Sablés au Comté">
+        <img src="images/LBPO-07.webp">
+        <div class="nom">Sablés au Comté</div>
+    </div>
+
+</div>
+
+<div class="panier-box">
+
+    <h2>🧺 Mon panier</h2>
+
+    <div id="panier">
+        <p class="panier-vide">Aucun produit sélectionné.</p>
+    </div>
+
+    <form action="https://formsubmit.co/TON_EMAIL" method="POST" class="formulaire">
+
+        <input type="hidden" name="Commande" id="commande-hidden">
+
+        <input type="text" name="Nom" placeholder="Nom" required>
+        <input type="text" name="Prénom" placeholder="Prénom" required>
+        <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
+        <input type="email" name="Email" placeholder="Adresse e-mail" required>
+
+        <button type="submit">📨 Envoyer la demande</button>
+
+    </form>
+
+</div>
+
+<footer class="footer">
+    🍪 Les Biscuits de Papa Ours — Fabrication artisanale 🐻
+</footer>
 
 <script>
-const produits =
-{
-    "Cookies":
-    [
-        "Cookie Bounty",
-        "Cookie Sirop d'érable & noix de pécan",
-        "Cookie aux chips",
-        "Cookie au beurre de cacahuète",
-        "Cookie Oréo",
-        "Cookies chocolat & café",
-        "Cookies chocolat noir & fleur de sel",
-        "Cookies Spéculoos"
-    ],
+let panier = {};
 
-    "Sablés":
-    [
-        "Sablés XXL à l'anis",
-        "Sablés fleur d'oranger & amandes",
-        "Sablés zeste de citron",
-        "Sablés chocolat & Earl Grey",
-        "Sablés noisette",
-        "Sablés au café",
-        "Sablés au Comté"
-    ],
+const panierDiv = document.getElementById("panier");
+const commandeHidden = document.getElementById("commande-hidden");
 
-    "Shortbread":
-    [
-        "Shortbread nature",
-        "Shortbread chocolat",
-        "Shortbread caramel",
-        "Shortbread lavande"
-    ]
-};
+document.querySelectorAll(".produit").forEach(function(carte){
+    carte.addEventListener("click", function(){
+        const nom = this.dataset.nom;
 
-let numeroLigne = 1;
-
-function activerLigne(ligne)
-{
-    const categorie = ligne.querySelector(".categorie-produit");
-    const produit = ligne.querySelector(".produit-select");
-
-    categorie.addEventListener("change", function()
-    {
-        produit.innerHTML = '<option value="">Choisir un produit</option>';
-
-        if(this.value === "")
-        {
-            return;
+        if(panier[nom]){
+            panier[nom]++;
+        } else {
+            panier[nom] = 1;
         }
 
-        produits[this.value].forEach(function(nomProduit)
-        {
-            const option = document.createElement("option");
-            option.value = nomProduit;
-            option.textContent = nomProduit;
-            produit.appendChild(option);
-        });
+        afficherPanier();
     });
+});
+
+function afficherPanier(){
+    panierDiv.innerHTML = "";
+
+    const nomsProduits = Object.keys(panier);
+
+    if(nomsProduits.length === 0){
+        panierDiv.innerHTML = '<p class="panier-vide">Aucun produit sélectionné.</p>';
+        commandeHidden.value = "";
+        return;
+    }
+
+    let texteCommande = "";
+
+    nomsProduits.forEach(function(nom){
+        const quantite = panier[nom];
+
+        texteCommande += nom + " x " + quantite + "\n";
+
+        const ligne = document.createElement("div");
+        ligne.className = "ligne-panier";
+
+        ligne.innerHTML = `
+            <strong>${nom}</strong>
+            <button type="button" onclick="modifierQuantite('${nom}', -1)">−</button>
+            <span>${quantite}</span>
+            <button type="button" onclick="modifierQuantite('${nom}', 1)">+</button>
+            <button type="button" class="supprimer" onclick="supprimerProduit('${nom}')">Supprimer</button>
+        `;
+
+        panierDiv.appendChild(ligne);
+    });
+
+    commandeHidden.value = texteCommande;
 }
 
-document.querySelectorAll(".ligne-produit").forEach(activerLigne);
+function modifierQuantite(nom, changement){
+    panier[nom] += changement;
 
-document.getElementById("ajouter-produit").addEventListener("click", function()
-{
-    numeroLigne++;
+    if(panier[nom] <= 0){
+        delete panier[nom];
+    }
 
-    const nouvelleLigne = document.createElement("div");
-    nouvelleLigne.className = "ligne-produit";
+    afficherPanier();
+}
 
-    nouvelleLigne.innerHTML = `
-        <select name="Catégorie ${numeroLigne}" class="categorie-produit" required>
-            <option value="">Choisir une catégorie</option>
-            <option value="Cookies">Cookies</option>
-            <option value="Sablés">Sablés</option>
-            <option value="Shortbread">Shortbread</option>
-        </select>
-
-        <select name="Produit ${numeroLigne}" class="produit-select" required>
-            <option value="">Choisir un produit</option>
-        </select>
-
-        <input type="number"
-               name="Quantité ${numeroLigne}"
-               min="1"
-               placeholder="Quantité"
-               required>
-    `;
-
-    document.getElementById("lignes-commande").appendChild(nouvelleLigne);
-
-    activerLigne(nouvelleLigne);
-});
+function supprimerProduit(nom){
+    delete panier[nom];
+    afficherPanier();
+}
 </script>
+
+</body>
+</html>
