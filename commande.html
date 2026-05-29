@@ -1,3 +1,4 @@
+```html
 <h2>📝 Demande de devis</h2>
 
 <form action="https://formsubmit.co/TON_EMAIL" method="POST" class="formulaire">
@@ -39,9 +40,7 @@
             required
             style="display:none;">
 
-        <option value="">
-            Choisir un produit
-        </option>
+        <option value="">Choisir un produit</option>
 
     </select>
 
@@ -58,3 +57,120 @@
     </button>
 
 </form>
+
+<style>
+
+/* =========================
+   FORMULAIRE DE DEVIS
+========================= */
+
+.formulaire
+{
+    max-width:600px;
+    margin:30px auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.formulaire input,
+.formulaire select
+{
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    box-sizing:border-box;
+}
+
+.formulaire button
+{
+    background:#6b3f1d;
+    color:white;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    font-size:18px;
+    cursor:pointer;
+    transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.formulaire button:hover
+{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+
+</style>
+
+<script>
+
+const produits =
+{
+    "Cookies":
+    [
+        "Cookie Bounty",
+        "Cookie Sirop d'érable & noix de pécan",
+        "Cookie aux chips",
+        "Cookie au beurre de cacahuète",
+        "Cookie Oréo",
+        "Cookies chocolat & café",
+        "Cookies chocolat noir & fleur de sel",
+        "Cookies Spéculoos"
+    ],
+
+    "Sablés":
+    [
+        "Sablés XXL à l'anis",
+        "Sablés fleur d'oranger & amandes",
+        "Sablés zeste de citron",
+        "Sablés chocolat & Earl Grey",
+        "Sablés noisette",
+        "Sablés au café",
+        "Sablés au Comté"
+    ],
+
+    "Shortbread":
+    [
+        "Shortbread nature",
+        "Shortbread chocolat",
+        "Shortbread caramel",
+        "Shortbread lavande"
+    ]
+};
+
+const categorie = document.getElementById("categorie");
+const produit = document.getElementById("produit");
+const quantite = document.getElementById("quantite");
+
+categorie.addEventListener("change", function()
+{
+    produit.innerHTML =
+        '<option value="">Choisir un produit</option>';
+
+    if(this.value === "")
+    {
+        produit.style.display = "none";
+        quantite.style.display = "none";
+        return;
+    }
+
+    produits[this.value].forEach(function(nomProduit)
+    {
+        const option = document.createElement("option");
+
+        option.value = nomProduit;
+        option.textContent = nomProduit;
+
+        produit.appendChild(option);
+    });
+
+    produit.style.display = "block";
+    quantite.style.display = "block";
+});
+
+</script>
