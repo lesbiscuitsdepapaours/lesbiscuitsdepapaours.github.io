@@ -556,12 +556,13 @@ body
 
     <form action="https://formsubmit.co/lesbiscuitsdepapaours@gmail.com" method="POST" class="formulaire">
         <input type="hidden" name="_subject" value="Nouvelle demande de devis - Les Biscuits de Papa Ours">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none"> 
         <input type="hidden" name="Commande" id="commande-hidden">
         <input type="text" name="Nom" placeholder="Nom" required>
         <input type="text" name="Prénom" placeholder="Prénom" required>
-        <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
-        <input type="email" name="Email" placeholder="Adresse e-mail" required>
+        <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" pattern="[0-9]{10}" required>
+        <input type="email" name="Email" placeholder="Adresse e-mail" maxlength="100" autocomplete="email"required>
         <input type="hidden" name="_next" value="https://lesbiscuitsdepapaours.github.io/merci.html">
         <label for="commentaire">💬 Une demande particulière ?</label>
        <textarea id="commentaire"
