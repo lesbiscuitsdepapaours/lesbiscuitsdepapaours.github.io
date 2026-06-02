@@ -403,13 +403,13 @@ body
     <div class="produit" data-nom="Muffins figues">
    <span class="badge-quantite">0</span>   
       <img src="images/LBPO-38.webp">
-        <div class="nom">Muffins figues & noix</div>
+        <div class="nom">Muffins figues</div>
     </div>
 
       <div class="produit" data-nom="Muffins noix">
    <span class="badge-quantite">0</span>   
       <img src="images/LBPO-39.webp">
-        <div class="nom">Muffins figues & noix</div>
+        <div class="nom">Muffins noix</div>
     </div>
 
     <div class="produit" data-nom="Cookies Spéculoos">
@@ -428,7 +428,7 @@ body
     <div class="produit" data-nom="Sablés fleur d'oranger">
    <span class="badge-quantite">0</span>
       <img src="images/LBPO-42.webp">
-        <div class="nom">Sablés zeste de citron</div>
+        <div class="nom">Sablés fleur d'oranger</div>
     </div>
   
     <div class="produit" data-nom="Sablés zeste de citron">
@@ -564,9 +564,11 @@ body
         <input type="email" name="Email" placeholder="Adresse e-mail" required>
         <input type="hidden" name="_next" value="https://lesbiscuitsdepapaours.github.io/merci.html">
         <label for="commentaire">💬 Une demande particulière ?</label>
-        <textarea id="commentaire" name="Commentaire" rows="5" placeholder="« Livraison plutôt le matin » « Je souhaiterais un assortiment »
-      « Allergies alimentaires » « Sans noix si possible » « Pour un anniversaire » « Merci de me rappeler après 18h » «...»  ">
-      </textarea>
+       <textarea id="commentaire"
+          name="Commentaire"
+          rows="5"
+          maxlength="500"   
+          placeholder="Allergies alimentaires, Heure de livraison... "></textarea>
       <label for="datecommande"> 📅 Date souhaitée de livraison </label>
       <input id="datecommande" type="date" name="Date souhaitée" required>
      
