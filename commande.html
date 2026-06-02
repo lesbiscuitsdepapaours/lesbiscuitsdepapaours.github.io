@@ -151,6 +151,19 @@ body
     opacity:1;
   transform:scale(1);
 }
+
+.formulaire textarea
+{
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    box-sizing:border-box;
+    resize:vertical;
+    min-height:120px;
+}
   
 .panier-box
   {
@@ -551,15 +564,11 @@ body
         <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
         <input type="email" name="Email" placeholder="Adresse e-mail" required>
         <input type="hidden" name="_next" value="https://lesbiscuitsdepapaours.github.io/merci.html">
-       <label for="datecommande">
-                                  📅 Date souhaitée de livraison
-</label>
+        <label for="datecommande"> 📅 Date souhaitée de livraison </label>
+        <label for="commentaire">💬 Commentaire (facultatif)</label>
 
-<input id="datecommande"
-       type="date"
-       name="Date souhaitée"
-       required>
-      
+<textarea id="commentaire" name="Commentaire" rows="5" placeholder="Informations complémentaires, contraintes de livraison, demande particulière..."></textarea>
+<input id="datecommande" type="date" name="Date souhaitée" required>
         <button type="submit">📨 Envoyer la demande</button>
 
     </form>
