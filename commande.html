@@ -328,6 +328,26 @@ body
 
     color:#6b3f1d;
 }
+
+.menu-categories
+{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:25px 0 35px 0;
+}
+
+.menu-categories a
+{
+    background:#6b3f1d;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:14px;
+    font-size:17px;
+}
+      
 /*================
     FIN DU CSS 
     =================*/
@@ -351,11 +371,21 @@ body
 </div>
 
 <a href="index.html" class="retour">← Retour à la galerie</a>
+
+<div class="menu-categories">
+    <a href="#sucre">🍪 Sucré</a>
+    <a href="#sale">🧀 Salé</a>
+    </div>
       
 <!-- =========================
      GALERIE DES PRODUITS
 ========================= -->
-<h2 class="categorie">🍪 Biscuits sucrés</h2>
+
+<!-- =========================
+     Biscuits sucrés
+========================= -->
+      
+<h2 id="sucre" class="categorie">🍪 Biscuits sucrés</h2>
 
       <div class="produits">
  <div class="produit" data-nom="Cookie Peanut M&M's">
@@ -516,7 +546,11 @@ body
             
       </div>
 
-<h2 class="categorie">🧀 Biscuits salés</h2>
+<!-- =========================
+     Biscuits salés
+========================= -->
+      
+<h2 id="sale" class="categorie">🧀 Biscuits salés</h2>
 
       <div class="produits">
     <div class="produit" data-nom="Crackers à la moutarde à l'ancienne">
