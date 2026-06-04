@@ -348,6 +348,53 @@ body
     border-radius:14px;
     font-size:17px;
 }
+
+html
+{
+    scroll-behavior:smooth;
+}
+
+#retour-haut
+{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+
+    width:56px;
+    height:56px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#6b3f1d;
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:0 6px 16px rgba(0,0,0,0.25);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    z-index:9999;
+}
+
+#retour-haut.visible
+{
+    opacity:1;
+    pointer-events:auto;
+}
+
+#retour-haut:hover
+{
+    transform:translateY(-3px);
+}
       
 /*================
     FIN DU CSS 
@@ -641,6 +688,11 @@ body
 <footer class="footer">
     🍪 Les Biscuits de Papa Ours — Fabrication artisanale 🐻
 </footer>
+
+<button id="retour-haut" title="Retour en haut">
+    ⬆️
+</button>
+      
 <!-- =========================
      JAVASCRIPT PANIER
 ========================= -->
@@ -771,6 +823,30 @@ function supprimerProduit(nom){
     delete panier[nom];
     afficherPanier();
 }
+
+const boutonRetourHaut = document.getElementById("retour-haut");
+
+window.addEventListener("scroll", function()
+{
+    if(window.scrollY > 400)
+    {
+        boutonRetourHaut.classList.add("visible");
+    }
+    else
+    {
+        boutonRetourHaut.classList.remove("visible");
+    }
+});
+
+boutonRetourHaut.addEventListener("click", function()
+{
+    window.scrollTo(
+    {
+        top:0,
+        behavior:"smooth"
+    });
+});
+      
 </script>
 <!-- =========================
      FIN DU JAVASCRIPT
