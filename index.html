@@ -520,17 +520,23 @@ html
 .footer
 {
     margin-top:60px;
-
     padding:25px;
-
     color:#7a5a3d;
-
     font-size:15px;
-
     text-align:center;
-
     opacity:0.9;
 }
+
+.footer a
+{
+    color:#7a5a3d;
+    text-decoration:none;
+}
+
+.footer a:hover
+{
+    text-decoration:underline;
+}        
 
 /* =========================
    INTRODUCTION
@@ -889,9 +895,17 @@ boutonRetourHaut.addEventListener("click", function()
 });
     
 </script>
-  <footer class="footer">
-    🍪 Les Biscuits de Papa Ours — Fabrication artisanale 🐻
-</footer>  
+<footer class="footer">
+
+    🍪 Les Biscuits de Papa Ours — Fabrication artisanale 🐻<br><br>
+
+    📞 06 XX XX XX XX<br>
+
+    ✉️ <a href="mailto:lesbiscuitsdepapaours@gmail.com">
+    lesbiscuitsdepapaours@gmail.com
+    </a>
+
+</footer> 
 
  
 
