@@ -371,29 +371,20 @@ html
     position:fixed;
     right:15px;
     bottom:15px;
-
     width:56px;
     height:56px;
-
     border:none;
     border-radius:50%;
-
     background:#6b3f1d;
     color:white;
-
     font-size:24px;
-
     cursor:pointer;
-
     box-shadow:0 6px 16px rgba(0,0,0,0.25);
-
     opacity:0;
     pointer-events:none;
-
     transition:
         opacity 0.3s ease,
         transform 0.3s ease;
-
     z-index:9999;
 }
 
@@ -727,6 +718,34 @@ const dateInput = document.querySelector('input[type="date"]');
 const aujourdHui = new Date().toISOString().split("T")[0];
 
 dateInput.min = aujourdHui;
+const datesBloquees =
+[
+
+
+    "2026-08-22",
+    "2026-08-23",
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-29",
+    "2026-08-30",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02"
+];
+
+dateInput.addEventListener("change", function()
+{
+    if(datesBloquees.includes(this.value))
+    {
+        alert("Cette date n'est pas disponible pour une livraison. Merci de choisir une autre date.");
+
+        this.value = "";
+    }
+});
+      
 document.querySelectorAll(".produit").forEach(function(carte){
     carte.addEventListener("click", function(){
         const nom = this.dataset.nom;
