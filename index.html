@@ -571,53 +571,58 @@ html
 }
 
 
-.album-diaporama {
-    margin-top: 20px;
-    text-align: center;
-}
 
-.diapo {
+
+
+/* Album SoCoo'c : fenêtre indépendante de la galerie */
+.album-so-cooc { cursor: pointer; }
+.visionneuse-album {
     display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 11000;
+    background: rgba(22, 15, 10, .92);
+    align-items: center;
+    justify-content: center;
+    padding: 56px 20px 24px;
+    box-sizing: border-box;
 }
-
-.diapo.active {
+.visionneuse-album.ouverte { display: flex; }
+.visionneuse-contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 100%;
+}
+.visionneuse-image {
     display: block;
-}
-
-.diapo img {
-    width: 100%;
-    max-width: 650px;
-    max-height: 500px;
+    max-width: min(90vw, 1000px);
+    max-height: 70vh;
+    width: auto;
+    height: auto;
     object-fit: contain;
     border-radius: 12px;
 }
-
-.navigation-album {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 15px;
-}
-
-.navigation-album button {
+.visionneuse-titre { color: #fff8ee; font-size: 17px; }
+.visionneuse-navigation { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.visionneuse-navigation button, .visionneuse-fermer {
     background: #a8753f;
-    color: white;
     border: none;
-    border-radius: 8px;
-    padding: 12px 18px;
+    border-radius: 9px;
+    color: white;
+    padding: 11px 15px;
+    font: inherit;
     cursor: pointer;
-    font-size: 15px;
 }
-
-.navigation-album button:hover {
-    background: #80542b;
+.visionneuse-navigation button:hover, .visionneuse-fermer:hover { background: #80542b; }
+.visionneuse-compteur { color: white; min-width: 55px; }
+.visionneuse-fermer { position: absolute; top: 14px; right: 20px; font-size: 23px; }
+@media (max-width: 600px) {
+    .visionneuse-image { max-width: 95vw; max-height: 65vh; }
+    .visionneuse-navigation { gap: 10px; }
+    .visionneuse-navigation button { padding: 10px; font-size: 14px; }
 }
-
-.compteur-album {
-    font-weight: bold;
-}
-
 
 </style>
 </head>
@@ -671,48 +676,10 @@ html
 </div>
 
 
-<details class="album">
-    <summary>
-        <img src="images/LBPO-63.webp" alt="Anniversaire SoCoo'c Saint-Maximin">
-        <span class="legende">
-            Soirée Anniversaire des 5 ans de SoCoo'c Saint Maximin — Cliquez ici
-        </span>
-    </summary>
-
-    <div class="album-diaporama">
-
-        <div class="diapo active">
-            <img src="images/LBPO-64.webp" alt="Photo 1">
-        </div>
-
-        <div class="diapo">
-            <img src="images/LBPO-65.webp" alt="Photo 2">
-        </div>
-
-        <div class="diapo">
-            <img src="images/LBPO-66.webp" alt="Photo 3">
-        </div>
-
-        <div class="diapo">
-            <img src="images/LBPO-67.webp" alt="Photo 4">
-        </div>
-
-        <div class="diapo">
-            <img src="images/LBPO-68.webp" alt="Photo 5">
-        </div>
-
-        <div class="diapo">
-            <img src="images/LBPO-69.webp" alt="Photo 6">
-        </div>
-
-        <div class="navigation-album">
-            <button type="button" onclick="changerPhoto(this, -1)">❮ Précédent</button>
-            <span class="compteur-album">1 / 6</span>
-            <button type="button" onclick="changerPhoto(this, 1)">Suivant ❯</button>
-        </div>
-
-    </div>
-</details>                           
+<div class="photo album-so-cooc" role="button" tabindex="0" aria-label="Ouvrir l’album SoCoo’c">
+    <img src="images/LBPO-63.webp" alt="Anniversaire des 5 ans de SoCoo’c Saint-Maximin">
+    <div class="legende">Soirée Anniversaire des 5 ans de SoCoo'c Saint Maximin — Cliquez ici</div>
+</div>                           
 
 <div class="photo">
         <img src="images/LBPO-62.webp">
@@ -997,6 +964,20 @@ figues & noix * Muffins praliné & noisettes</div>
 </div>
 
   
+
+<div id="visionneuse-so-cooc" class="visionneuse-album" role="dialog" aria-modal="true" aria-label="Photos de la soirée SoCoo’c" aria-hidden="true">
+    <button type="button" class="visionneuse-fermer" aria-label="Fermer l’album">×</button>
+    <div class="visionneuse-contenu">
+        <div class="visionneuse-titre">Anniversaire des 5 ans de SoCoo'c Saint-Maximin</div>
+        <img class="visionneuse-image" src="images/LBPO-64.webp" alt="Photo de l’événement">
+        <div class="visionneuse-navigation">
+            <button type="button" class="visionneuse-precedent">❮ Précédent</button>
+            <span class="visionneuse-compteur">1 / 6</span>
+            <button type="button" class="visionneuse-suivant">Suivant ❯</button>
+        </div>
+    </div>
+</div>
+
 <div class="lightbox" id="lightbox">
     <img id="lightbox-img">
 </div>    
@@ -1009,7 +990,7 @@ figues & noix * Muffins praliné & noisettes</div>
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-document.querySelectorAll('.photo img, .mini-photo img, .album summary img').forEach(img => {
+document.querySelectorAll('.photo:not(.album-so-cooc) img, .mini-photo img, .album summary img').forEach(img => {
     img.addEventListener('click', function(e){
         e.stopPropagation();
         lightbox.style.display = 'flex';
@@ -1045,6 +1026,50 @@ boutonRetourHaut.addEventListener("click", function()
     });
 });
     
+
+// Visionneuse indépendante pour l'album SoCoo'c
+const albumSoCooc = document.querySelector('.album-so-cooc');
+const visionneuse = document.getElementById('visionneuse-so-cooc');
+const imageVisionneuse = visionneuse.querySelector('.visionneuse-image');
+const compteurVisionneuse = visionneuse.querySelector('.visionneuse-compteur');
+const photosSoCooc = [64, 65, 66, 67, 68, 69].map(n => `images/LBPO-${n}.webp`);
+let indexSoCooc = 0;
+function afficherPhotoSoCooc() {
+    imageVisionneuse.src = photosSoCooc[indexSoCooc];
+    imageVisionneuse.alt = `Photo ${indexSoCooc + 1} sur ${photosSoCooc.length} de la soirée SoCoo'c`;
+    compteurVisionneuse.textContent = `${indexSoCooc + 1} / ${photosSoCooc.length}`;
+}
+function ouvrirAlbumSoCooc() {
+    indexSoCooc = 0;
+    afficherPhotoSoCooc();
+    visionneuse.classList.add('ouverte');
+    visionneuse.setAttribute('aria-hidden', 'false');
+    visionneuse.querySelector('.visionneuse-fermer').focus();
+}
+function fermerAlbumSoCooc() {
+    visionneuse.classList.remove('ouverte');
+    visionneuse.setAttribute('aria-hidden', 'true');
+    albumSoCooc.focus();
+}
+function naviguerAlbumSoCooc(decalage) {
+    indexSoCooc = (indexSoCooc + decalage + photosSoCooc.length) % photosSoCooc.length;
+    afficherPhotoSoCooc();
+}
+albumSoCooc.addEventListener('click', ouvrirAlbumSoCooc);
+albumSoCooc.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrirAlbumSoCooc(); }
+});
+visionneuse.querySelector('.visionneuse-fermer').addEventListener('click', fermerAlbumSoCooc);
+visionneuse.querySelector('.visionneuse-precedent').addEventListener('click', () => naviguerAlbumSoCooc(-1));
+visionneuse.querySelector('.visionneuse-suivant').addEventListener('click', () => naviguerAlbumSoCooc(1));
+visionneuse.addEventListener('click', e => { if (e.target === visionneuse) fermerAlbumSoCooc(); });
+document.addEventListener('keydown', e => {
+    if (!visionneuse.classList.contains('ouverte')) return;
+    if (e.key === 'Escape') fermerAlbumSoCooc();
+    if (e.key === 'ArrowLeft') naviguerAlbumSoCooc(-1);
+    if (e.key === 'ArrowRight') naviguerAlbumSoCooc(1);
+});
+
 </script>
 <footer class="footer">
 
@@ -1059,23 +1084,6 @@ boutonRetourHaut.addEventListener("click", function()
 </footer> 
 
  
-function changerPhoto(bouton, direction) {
-    const album = bouton.closest(".album");
-    const photos = album.querySelectorAll(".diapo");
-    const compteur = album.querySelector(".compteur-album");
-
-    let index = Array.from(photos).findIndex(
-        photo => photo.classList.contains("active")
-    );
-
-    photos[index].classList.remove("active");
-
-    index = (index + direction + photos.length) % photos.length;
-
-    photos[index].classList.add("active");
-
-    compteur.textContent = (index + 1) + " / " + photos.length;
-}
 
 
 </body>
