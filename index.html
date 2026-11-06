@@ -406,6 +406,55 @@ html
     FIN DU CSS 
     =================*/
     
+
+/* Boutons sociaux identiques à la galerie */
+.reseaux
+{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+.social-btn
+{
+    text-decoration:none;
+    color:white;
+    padding:14px 28px;
+    border-radius:14px;
+    font-size:20px;
+    font-weight:400;
+    transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+    box-shadow:0 4px 10px rgba(0,0,0,0.18);
+}
+
+.social-btn:hover
+{
+    transform:translateY(-3px) scale(1.05);
+}
+
+.facebook
+{
+    background:#1877f2;
+}
+
+.instagram
+{
+    background:linear-gradient(
+        45deg,
+        #f09433,
+        #e6683c,
+        #dc2743,
+        #cc2366,
+        #bc1888
+    );
+}
+
+
+.social-btn {width:220px;height:55px;display:flex;align-items:center;justify-content:center;box-sizing:border-box;}
 </style>
 
 
