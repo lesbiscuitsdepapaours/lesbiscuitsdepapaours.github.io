@@ -465,19 +465,27 @@ html
 </head>
       
 <script>
-// Classe chaque catalogue sans modifier la structure HTML ni les fiches.
+// Tri français automatique des recettes actuelles et futures, dans chaque catégorie.
 document.addEventListener("DOMContentLoaded", () => {
-  ["sucre", "sale"].forEach(id => {
-    const titre = document.getElementById(id);
-    const conteneur = titre?.nextElementSibling;
-    if (!conteneur?.classList.contains("produits")) return;
+  const collateur = new Intl.Collator("fr", {sensitivity: "base", numeric: true});
+  const nomRecette = carte =>
+    (carte.querySelector(".nom")?.textContent || carte.dataset.nom || "").trim();
 
-    const biscuits = Array.from(conteneur.querySelectorAll(":scope > .produit"));
-    biscuits.sort((a, b) =>
-      (a.dataset.nom || a.querySelector(".nom")?.textContent || "")
-        .localeCompare(b.dataset.nom || b.querySelector(".nom")?.textContent || "", "fr", {sensitivity: "base"})
-    );
-    conteneur.append(...biscuits);
+  document.querySelectorAll(".produits").forEach(conteneur => {
+    const trier = () => {
+      const cartes = Array.from(conteneur.children)
+        .filter(element => element.classList.contains("produit"));
+      const ordre = [...cartes].sort((a, b) => collateur.compare(nomRecette(a), nomRecette(b)));
+      if (ordre.some((carte, index) => carte !== cartes[index])) {
+        ordre.forEach(carte => conteneur.append(carte));
+      }
+    };
+    trier();
+    // Les ajouts et changements de nom sont également reclassés automatiquement.
+    new MutationObserver(trier).observe(conteneur, {
+      childList: true, subtree: true, characterData: true,
+      attributes: true, attributeFilter: ["data-nom"]
+    });
   });
 });
 </script>
