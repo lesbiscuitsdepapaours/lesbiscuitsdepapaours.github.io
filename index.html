@@ -20,7 +20,30 @@ content="Les Biscuits de Papa Ours - Cookies, sablés, crackers, muffins et made
 /*================
     DEBUT DU CSS 
     =================*/
-    
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#sucre, #sale").forEach(section => {
+    const conteneur = section.querySelector(".produits");
+    if (!conteneur) return;
+
+    const biscuits = [...conteneur.children];
+
+    biscuits.sort((a, b) => {
+      const nomA = a.dataset.nom || "";
+      const nomB = b.dataset.nom || "";
+      return nomA.localeCompare(nomB, "fr", {
+        sensitivity: "base"
+      });
+    });
+
+    biscuits.forEach(biscuit => conteneur.appendChild(biscuit));
+  });
+});
+</script>
+
+      
 body
   {
     font-family:'Fredoka', sans-serif;
