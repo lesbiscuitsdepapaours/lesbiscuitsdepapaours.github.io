@@ -1,0 +1,1238 @@
+      <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Les Biscuits de Papa Ours — Biscuits artisanaux sur commande</title>
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<meta name="description"
+content="Les Biscuits de Papa Ours - Cookies, sablés, crackers, muffins et madeleines artisanales fabriqués avec passion dans le Var.">
+<link rel="canonical" href="https://lesbiscuitsdepapaours.fr/">  
+<style>
+
+/*================
+    DEBUT DU CSS 
+    =================*/     
+body
+  {
+    font-family:'Fredoka', sans-serif;
+    margin:0;
+    padding:40px;
+    text-align:center;
+    color:#5c3b1e;
+    background:
+    linear-gradient(rgba(245,241,234,0.96), rgba(245,241,234,0.96)),
+    url("images/papier.jpg");
+    background-size:cover;
+}
+
+  label
+{
+    margin-top:10px;
+    margin-bottom:-5px;
+    font-size:16px;
+    color:#5c3b1e;
+}
+  
+.intro{
+    max-width:850px;
+    margin:0 auto 35px auto;
+}
+
+.intro h1
+{
+    font-size:32px;
+    font-weight:400;
+    color:#6b3f1d;
+}
+
+.intro p
+  {
+    font-size:18px;
+    color:#7a5a3d;
+}
+
+.retour
+  {
+    display:inline-block;
+    margin-bottom:30px;
+    color:#5c3b1e;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.retour:hover
+  {
+    text-decoration:underline;
+}
+
+.produits
+  {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.produit
+  {
+    position:relative;
+    width:230px;
+    border-radius:16px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    background:white;
+}
+
+.produit:hover
+  {
+    transform:translateY(-5px) scale(1.10);
+    box-shadow:0 10px 22px rgba(0,0,0,0.28);
+}
+
+.produit img
+  {
+    width:230px;
+    height:230px;
+    object-fit:cover;
+    display:block;
+}
+
+.produit .nom
+  {
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.48);
+    color:white;
+    padding:9px;
+    font-size:15px;
+    font-weight:400;
+    backdrop-filter:blur(4px);
+}
+
+.badge-quantite
+{
+    position:absolute;
+    top:10px;
+    right:10px;
+    min-width:28px;
+    height:28px;
+    background:#d62828;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    font-weight:600;
+    box-shadow:0 3px 8px rgba(0,0,0,0.25);
+    opacity:0;
+    transition:opacity 0.2s ease;
+    transform:scale(0.8);
+    transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.badge-quantite.visible
+{
+    opacity:1;
+  transform:scale(1);
+}
+
+.formulaire textarea
+{
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    box-sizing:border-box;
+    resize:vertical;
+    min-height:120px;
+}
+  
+.panier-box
+  {
+    max-width:760px;
+    margin:50px auto 0 auto;
+    background:rgba(255,255,255,0.7);
+    padding:28px;
+    border-radius:22px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.panier-box h2
+  {
+    margin-top:0;
+}
+
+.panier-vide
+  {
+    color:#7a5a3d;
+}
+
+.ligne-panier
+  {
+    display:grid;
+    grid-template-columns:1fr auto auto auto;
+    gap:10px;
+    align-items:center;
+    background:#fff8ee;
+    padding:12px;
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+.ligne-panier button
+  {
+    border:none;
+    background:#6b3f1d;
+    color:white;
+    border-radius:10px;
+    padding:8px 12px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.supprimer
+  {
+    background:#9b2f2f !important;
+}
+
+.formulaire
+  {
+    max-width:600px;
+    margin:30px auto 0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.formulaire input
+  {
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-family:'Fredoka', sans-serif;
+    font-size:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    box-sizing:border-box;
+}
+
+.formulaire button
+  {
+    background:#6b3f1d;
+    color:white;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    font-size:18px;
+    cursor:pointer;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.formulaire button:hover
+  {
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+
+.footer
+  {
+    margin-top:60px;
+    padding:25px;
+    color:#7a5a3d;
+    font-size:15px;
+}
+
+.footer a
+{
+    color:#7a5a3d;
+    text-decoration:none;
+}
+
+.footer a:hover
+{
+    text-decoration:underline;
+}
+      
+.produit.selectionne
+{
+    box-shadow:
+        0 0 0 3px #d62828,
+        0 10px 22px rgba(0,0,0,0.28);
+}
+  
+.message-ajout
+{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#6b3f1d;
+    color:white;
+    padding:14px 22px;
+    border-radius:14px;
+    font-size:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.3s ease;
+    z-index:9999;
+}
+
+.message-ajout.visible
+{
+    opacity:1;
+}
+ 
+@media (max-width:768px){
+    body{
+        padding:25px;
+    }
+
+    .produit{
+        width:42vw;
+    }
+
+    .produit img{
+        width:42vw;
+        height:42vw;
+    }
+
+    .produit .nom{
+        font-size:13px;
+    }
+
+    .ligne-panier{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+}
+    .info-livraison
+{
+    margin:20px 0;
+    font-size:14px;
+    color:#7a5a3d;
+    opacity:0.8;
+    text-align:center;
+}
+.categorie
+{
+    margin-top:50px;
+    margin-bottom:25px;
+
+    font-size:32px;
+
+    color:#6b3f1d;
+}
+
+.menu-categories
+{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:25px 0 35px 0;
+}
+
+.menu-categories a
+{
+    background:#6b3f1d;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:14px;
+    font-size:17px;
+}
+
+html
+{
+    scroll-behavior:smooth;
+}
+
+#retour-haut
+{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    width:56px;
+    height:56px;
+    border:none;
+    border-radius:50%;
+    background:#6b3f1d;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,0,0,0.25);
+    opacity:0;
+    pointer-events:none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    z-index:9999;
+}
+
+#retour-haut.visible
+{
+    opacity:1;
+    pointer-events:auto;
+}
+
+#retour-haut:hover
+{
+    transform:translateY(-3px);
+}
+      
+.info-paiement {padding:18px; border-radius:14px; background:#fff8ee; border:1px solid #dfc8a7; text-align:left; font-size:15px; line-height:1.55;}
+.info-paiement strong {display:block; margin-bottom:8px;}
+.info-paiement p {margin:8px 0 0;}
+/*================
+    FIN DU CSS 
+    =================*/
+    
+
+/* Boutons sociaux identiques à la galerie */
+.reseaux
+{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+.social-btn
+{
+    text-decoration:none;
+    color:white;
+    padding:14px 28px;
+    border-radius:14px;
+    font-size:20px;
+    font-weight:400;
+    transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+    box-shadow:0 4px 10px rgba(0,0,0,0.18);
+}
+
+.social-btn:hover
+{
+    transform:translateY(-3px) scale(1.05);
+}
+
+.facebook
+{
+    background:#1877f2;
+}
+
+.instagram
+{
+    background:linear-gradient(
+        45deg,
+        #f09433,
+        #e6683c,
+        #dc2743,
+        #cc2366,
+        #bc1888
+    );
+}
+
+
+.social-btn {width:220px;height:55px;display:flex;align-items:center;justify-content:center;box-sizing:border-box;}
+
+/* En-tête de l'accueil */
+.accueil-intro {max-width:1300px; margin:0 auto 40px;}
+.accueil-intro h1 {font-size:clamp(30px,3.2vw,48px); font-weight:400; margin:0 0 24px;}
+.accueil-intro p {font-size:clamp(18px,2vw,30px); line-height:1.45; margin:0;}
+.consigne-devis {font-size:18px; margin:20px auto 0;}
+@media(max-width:768px) {.accueil-intro {margin-bottom:26px;}}
+
+/* Masquer le bandeau et le titre au survol sur les appareils avec souris */
+@media (hover: hover) and (pointer: fine) {
+    .produit .nom {
+        transition: opacity 0.25s ease;
+    }
+    .produit:hover .nom {
+        opacity: 0;
+    }
+}
+</style>   
+</head>
+      
+<script>
+// Tri français automatique des recettes actuelles et futures, dans chaque catégorie.
+document.addEventListener("DOMContentLoaded", () => {
+  const collateur = new Intl.Collator("fr", {sensitivity: "base", numeric: true});
+  const nomRecette = carte =>
+    (carte.querySelector(".nom")?.textContent || carte.dataset.nom || "").trim();
+
+  document.querySelectorAll(".produits").forEach(conteneur => {
+    const trier = () => {
+      const cartes = Array.from(conteneur.children)
+        .filter(element => element.classList.contains("produit"));
+      const ordre = [...cartes].sort((a, b) => collateur.compare(nomRecette(a), nomRecette(b)));
+      if (ordre.some((carte, index) => carte !== cartes[index])) {
+        ordre.forEach(carte => conteneur.append(carte));
+      }
+    };
+    trier();
+    // Les ajouts et changements de nom sont également reclassés automatiquement.
+    new MutationObserver(trier).observe(conteneur, {
+      childList: true, subtree: true, characterData: true,
+      attributes: true, attributeFilter: ["data-nom"]
+    });
+  });
+});
+</script>
+      
+<body>
+
+<!-- =============
+    DEBUT DU HTML 
+    ==================-->
+     
+<div class="intro accueil-intro">
+    <h1>🍪 Les Biscuits de Papa Ours 🐻</h1>
+    <p>Cookies, muffins, sablés, crackers, madeleines... Des créations faites maison avec passion.</p>
+</div>
+
+<nav class="reseaux" aria-label="Réseaux sociaux">
+    <a href="https://www.facebook.com/lesbiscuitsdepapaours" target="_blank" rel="noopener noreferrer" class="social-btn facebook">📘 Facebook</a>
+    <a href="https://instagram.com/lesbiscuitsdepapaours" target="_blank" rel="noopener noreferrer" class="social-btn instagram">📸 Instagram</a>
+
+</nav>
+
+<p class="consigne-devis">Cliquez sur les photos pour ajouter des produits à votre demande de devis.</p>
+<p class="info-livraison">Illustrations non contractuelles.</p>
+
+<div class="menu-categories">
+    <a href="#sucre">🍪 Sucré</a>
+    <a href="#sale">🧀 Salé</a>
+    </div>
+      
+<!-- =========================
+     GALERIE DES PRODUITS
+========================= -->
+
+<!-- =========================
+     Biscuits sucrés
+========================= -->
+      
+<h2 id="sucre" class="categorie">🍪 Biscuits sucrés</h2>
+
+<div class="produits">
+
+<div class="produit" data-nom="Bicolore Pistache & Vanille" data-minimum="9">
+<span class="badge-quantite">0</span>
+<img src="images/Bicolore-pistache-vanille.webp">
+<div class="nom">Bicolore Pistache & Vanille</div>
+</div>
+
+<div class="produit" data-nom="Bicolore Chocolat 90% & Vanille" data-minimum="9">
+<span class="badge-quantite">0</span>
+<img src="images/Bicolore-vanille-chocolat.webp">
+<div class="nom">Bicolore Chocolat 90% & Vanille</div>
+</div>
+
+<div class="produit" data-nom="Cookie Café & Chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookie-café-chocolat.webp">
+<div class="nom">Cookie Café & Chocolat</div>
+</div>
+
+<div class="produit" data-nom="Cookie Café & Chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookie-café-chocolat.webp">
+<div class="nom">Cookie Café & Chocolat</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Cranberries & Chocolat blanc" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-cranberries-chocolat-blanc.webp">
+<div class="nom">Cookie Cranberries & Chocolat blanc</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Croissant" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-croissant.webp">
+<div class="nom">Cookie Croissant</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Gingembre confit & Chocolat noir" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-gingembre-confit-chocolat-noir.webp">
+<div class="nom">Cookie Gingembre confit & Chocolat noir</div>
+</div>
+      
+<div class="produit" data-nom="Cookie KitKat" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-KitKat.webp">
+<div class="nom">Cookie KitKat</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Pain au chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-pain-chocolat.webp">
+<div class="nom">Cookie Pain au chocolat</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Pain d'épices & Chocolat noir" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-pain-épices-chocolat-noir.webp">
+<div class="nom">Cookie Pain d'épices & Chocolat noir</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Praliné & Noisettes torréfiées" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookies-praliné-noisettes-torréfiées.webp">
+<div class="nom">Cookie Praliné & Noisettes torréfiées</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Amandes torréfiées" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-amandes-torréfiées.webp">
+<div class="nom">Sablé Amandes torréfiées</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Cacao & Epices de Noël" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-cacao-épices-Noël.webp">
+<div class="nom">Sablé Cacao & Epices de Noël</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Cannelle" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-cannelle.webp">
+<div class="nom">Sablé Cannelle</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Châtaigne & Noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-châtaigne-noix.webp">
+<div class="nom">Sablé Châtaigne & Noix</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Clémentine & Chocolat noir" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-clémentine-chocolat-noir.webp">
+<div class="nom">Sablé Clémentine & Chocolat noir</div>
+</div>
+
+<div class="produit" data-nom="Sablé Earl Grey & Chocolat noir" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Earl-Grey-chocolat.webp">
+<div class="nom">Sablé Earl Grey & Chocolat noir</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Figues & Noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-figues-noix.webp">
+<div class="nom">Sablé Figues & Noix</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Orange & Amandes" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-orange-amandes.webp">
+<div class="nom">Sablé Orange & Amandes</div>
+</div>
+      
+<div class="produit" data-nom="Sablé Pain d'épices & Noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-pain-épices-noix.webp">
+<div class="nom">Sablé Pain d'épices & Noix</div>
+</div>
+
+<div class="produit" data-nom="Cookie Pop-Corn" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-pop-corn.webp">
+<div class="nom">Cookie Pop-Corn</div>
+</div>
+
+<div class="produit" data-nom="Cookie Framboise" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-framboise.webp">
+<div class="nom">Cookie Framboise</div>
+</div>
+
+<div class="produit" data-nom="Cookie Speculos" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-speculos.webp">
+<div class="nom">Cookie Speculos</div>
+</div>
+
+<div class="produit" data-nom="Cookie Chocolat noir & noisettes" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-noisettes.webp">
+<div class="nom">Cookie Chocolat noir & noisettes</div>
+</div>
+
+<div class="produit" data-nom="Spritz Citron" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-citron.webp">
+<div class="nom">Spritz Citron</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Framboise & chocolat blanc" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-framboise.webp">
+<div class="nom">Cookie Framboise & chocolat blanc</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Noix de Pécan & chocolat noir" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-noix-de-pecan.webp">
+<div class="nom">Cookie Noix de Pécan & chocolat noir</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Peanut M&M's" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies- M&Ms.webp">
+<div class="nom">Cookie Peanut M&M's</div>
+</div>
+      
+<div class="produit" data-nom="Cookie Bounty" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-bounty.webp">
+<div class="nom">Cookie Bounty</div>
+</div>
+
+<div class="produit" data-nom="Cookie Sirop d'érable & noix de pécan" data-minimum="6">
+<span class="badge-quantite">0</span>  
+<img src="images/cookies-erable-pecan.webp">
+<div class="nom">Cookie Sirop d'érable & noix de pécan</div>
+</div>
+ 
+<div class="produit" data-nom="Cookie aux chips" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-chips.webp">
+<div class="nom">Cookie aux chips</div>
+</div>
+
+<div class="produit" data-nom="Cookie Beurre de cacahuète" data-minimum="6">
+<span class="badge-quantite">0</span> 
+<img src="images/cookies-beurre-cacahuete.webp">
+<div class="nom">Cookie Beurre de cacahuète</div>
+</div>
+
+<div class="produit" data-nom="Cookie Oréo" data-minimum="6">
+<span class="badge-quantite">0</span> 
+<img src="images/cookies-oreo.webp">
+<div class="nom">Cookie Oréo</div>
+</div>
+
+<div class="produit" data-nom="Sablé Anis" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-anis.webp">
+<div class="nom">Sablé Anis</div>
+</div>
+
+<div class="produit" data-nom="Cookie Café & Chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>  
+<img src="images/cookies-chocolat-cafe.webp">
+<div class="nom">Cookie Café & Chocolat</div>
+</div>
+
+<div class="produit" data-nom="Muffin Figues" data-minimum="6">
+<span class="badge-quantite">0</span>   
+<img src="images/Muffins-Figues.webp">
+<div class="nom">Muffin Figues</div>
+</div>
+
+<div class="produit" data-nom="Muffin Noix" data-minimum="6">
+<span class="badge-quantite">0</span>   
+<img src="images/Muffins-Noix.webp">
+<div class="nom">Muffin Noix</div>
+</div>
+
+<div class="produit" data-nom="Cookie Chocolat noir & Fleur de sel" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-chocolat-fleur-de-sel.webp">
+<div class="nom">Cookie Chocolat noir & Fleur de sel</div>
+</div>
+
+<div class="produit" data-nom="Sablé Fleur d'oranger" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Fleurs-Oranger.webp">
+<div class="nom">Sablé Fleur d'oranger</div>
+</div>
+  
+<div class="produit" data-nom="Sablé Zeste de citron" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-citron.webp">
+<div class="nom">Sablé Zeste de citron</div>
+</div>
+
+<div class="produit" data-nom="Sablé Noisette" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Noisettes.webp">
+<div class="nom">Sablé Noisette</div>
+</div>
+
+<div class="produit" data-nom="Sablé Fleur d'oranger & Amandes" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Amandes-Fleurs-oranger.webp">
+<div class="nom">Sablé Fleur d'oranger & Amandes</div>
+</div>
+  
+<div class="produit" data-nom="Cookie Schoko Bons" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-schoko-bons.webp">
+<div class="nom">Cookie Schoko Bons</div>
+</div>
+
+<div class="produit" data-nom="Cookie Abricot & Pistache" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-abricot-pistache.webp">
+<div class="nom">Cookie Abricot & Pistache</div>
+</div>
+
+<div class="produit" data-nom="Cookie Lavande & Miel" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-lavande-miel.webp">
+<div class="nom">Cookie Lavande & Miel</div>
+</div>     
+
+<div class="produit" data-nom="Muffin Caramel & Noix" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Muffins-Caramel-Noix.webp">
+<div class="nom">Muffin caramel & noix</div>
+</div>
+
+<div class="produit" data-nom="Muffin Café & Chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Muffins-Café-Chocolat noir.webp">
+<div class="nom">Muffin Café & Chocolat</div>
+</div>
+
+<div class="produit" data-nom="Muffin Chocolat noir" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Muffins-Chocolat-noir.webp">
+<div class="nom">Muffin Chocolat noir</div>
+</div>
+
+<div class="produit" data-nom="Tartelette Noix de coco" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Tartelettes-Coco.webp">
+<div class="nom">Tartelette Noix de coco</div>
+</div>
+      
+<div class="produit" data-nom="Muffin Noix de coco" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Muffins-Noix-de-coco.webp">
+<div class="nom">Muffin Noix de coco</div>
+</div>
+</div>
+
+<!-- =========================
+     Biscuits salés
+========================= -->
+      
+<h2 id="sale" class="categorie">🧀 Biscuits salés</h2>
+
+<div class="produits">
+
+<div class="produit" data-nom="Apéroc Comté & Noix" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Aperocs-comté-noix.webp">
+<div class="nom">Apéroc Comté & Noix</div>
+</div>
+
+<div class="produit" data-nom="Apéroc Comté, Olives Noires & Origan" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Aperocs-comté-olives-origan.webp">
+<div class="nom">Apéroc Comté, Olives Noires & Origan</div>
+</div>
+
+<div class="produit" data-nom="Apéroc Emmental & Ail" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Aperocs-emmental-ail.webp">
+<div class="nom">Apéroc Emmental & Ail</div>
+</div>
+
+<div class="produit" data-nom="Apéroc Oignons" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Aperocs-oignons.webp">
+<div class="nom">Apéroc Oignons</div>
+</div>
+
+<div class="produit" data-nom="Cracker Comté" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-comté.webp">
+<div class="nom">Cracker Comté</div>
+</div>
+
+<div class="produit" data-nom="Cracker Emmental" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-emmental.webp">
+<div class="nom">Cracker Emmental</div>
+</div>
+
+<div class="produit" data-nom="Cracker Herbes du maquis" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-herbes-du-maquis.webp">
+<div class="nom">Cracker Herbes du maquis</div>
+</div>
+
+<div class="produit" data-nom="Cracker Oignons" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-oignons.webp">
+<div class="nom">Cracker Oignons</div>
+</div>
+
+<div class="produit" data-nom="Cracker Parmesan" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-parmesan.webp">
+<div class="nom">Cracker Parmesan</div>
+</div>
+
+<div class="produit" data-nom="Cracker Poulet rôti" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-poulet-rôti.webp">
+<div class="nom">Cracker Poulet rôti</div>
+</div>
+
+<div class="produit" data-nom="Cracker Romarin & Fleur de sel" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-romarin-fleur-de-sel.webp">
+<div class="nom">Cracker Romarin & Fleur de sel</div>
+</div>
+
+<div class="produit" data-nom="Sablé Parmesan & Thym" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Sablé-parmesan-thym.webp">
+<div class="nom">Sablé Parmesan & Thym</div>
+</div>
+
+<div class="produit" data-nom="Apéroc Parmesan & noisettes" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Apreocs-noisettes-parmesan.webp">
+<div class="nom">Apéroc Parmesan & noisettes</div>
+</div>    
+            
+<div class="produit" data-nom="Sablé Emmental & noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablé-emmental-noix.webp">
+<div class="nom">Sablé Emmental & noix</div>
+</div>    
+
+<div class="produit" data-nom="Cracker Moutarde à l'ancienne" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-moutarde-ancienne.webp">
+<div class="nom">Cracker Moutarde à l'ancienne</div>
+</div>
+      
+<div class="produit" data-nom="Cracker Paprika fumé" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-paprika-fumé.webp">
+<div class="nom">Cracker Paprika fumé</div>
+</div>
+ 
+<div class="produit" data-nom="Madeleine Pesto & Pignons de pins" data-minimum="12">
+<span class="badge-quantite">0</span>
+<img src="images/Madeleine-pesto-pignons.webp">
+<div class="nom">Madeleine Pesto & Pignons de pins</div>
+</div>
+
+<div class="produit" data-nom="Madeleine Olives noires & Origan" data-minimum="12">
+<span class="badge-quantite">0</span>
+<img src="images/Madeleine-olives-noires-origan.webp">
+<div class="nom">Madeleine Olives noires & Origan</div>
+</div>
+
+<div class="produit" data-nom="Madeleine Paprika fumé" data-minimum="12">
+<span class="badge-quantite">0</span>
+<img src="images/Madeleine-paprika-fumé.webp">
+<div class="nom">Madeleine Paprika fumé</div>
+</div>
+
+<div class="produit" data-nom="Madeleine Moutarde à l'ancienne" data-minimum="12">
+<span class="badge-quantite">0</span>
+<img src="images/Madeleine-moutarde-ancienne.webp">
+<div class="nom">Madeleine Moutarde à l'ancienne</div>
+</div>   
+
+<div class="produit" data-nom="Sablé Comté" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablé-comté.webp">
+<div class="nom">Sablé Comté</div>
+</div>            
+</div>
+
+<!-- =========================
+     PANIER
+========================= -->
+<div class="panier-box">
+
+    <h2 id="titre-panier">🧺 Mon panier (0)</h2>
+
+    <div id="panier">
+        <p class="panier-vide">Aucun produit sélectionné.</p>
+    </div>
+
+    <form action="https://formsubmit.co/lesbiscuitsdepapaours@gmail.com" method="POST" class="formulaire">
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis - Les Biscuits de Papa Ours">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none"> 
+        <input type="hidden" name="Commande" id="commande-hidden">
+        <input type="text" name="Nom" placeholder="Nom" required>
+        <input type="text" name="Prénom" placeholder="Prénom" required>
+        <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
+        <input type="email" name="Email" placeholder="Adresse e-mail" maxlength="100" autocomplete="email" required>
+        <input type="hidden" name="_next" value="https://lesbiscuitsdepapaours.fr/merci.html">
+        <label for="commentaire">💬 Une demande particulière ?</label>
+       <textarea id="commentaire"
+          name="Commentaire"
+          rows="5"
+          maxlength="500"   
+          placeholder="allergies alimentaires, heure de livraison, sans noix si possible, merci de me rappeler après 18h... "></textarea>
+      <label for="datecommande"> 📅 Date souhaitée de livraison </label>
+      <input id="datecommande" type="date" name="Date souhaitée" required>
+     
+      <div class="info-paiement" role="note">
+<strong>Demande de devis sans paiement</strong>
+<p>Votre demande ne constitue pas une commande confirmée. Nous vérifierons les disponibilités, la date.</p>
+<p>Vous recevrez un devis définitif avec une référence. Pour l’accepter, vous devrez répondre par e-mail en indiquant explicitement votre accord et la référence du devis.</p>
+<p>Après réception de cet accord écrit, nous vous transmettrons un lien de paiement sécurisé SumUp. La fabrication commencera après confirmation du paiement.</p>
+<p><strong>Fabrication uniquement sur commande :</strong> chaque recette a une quantité minimale indiquée sur sa photo. Une fois ce minimum atteint, vous pouvez augmenter la quantité à l’unité. Aucune commande n’est prélevée sur un stock existant.</p>
+</div>
+<button type="submit">📨 Envoyer ma demande de devis</button>
+
+    </form>
+
+</div>
+  
+<p class="info-livraison">
+    🚚 Les commandes sont livrées localement. Aucun envoi postal n'est proposé.
+</p>
+<div id="message-ajout" class="message-ajout"></div>  
+<footer class="footer">
+
+    🍪 Les Biscuits de Papa Ours — Fabrication artisanale 🐻<br>
+
+    📞 06 76 92 34 11<br>
+
+    ✉️ <a href="mailto:lesbiscuitsdepapaours@gmail.com">lesbiscuitsdepapaours@gmail.com</a>
+    <p>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </p> 
+</footer> 
+
+<button id="retour-haut" title="Retour en haut">
+    ⬆️
+</button>
+      
+<!-- =========================
+     JAVASCRIPT PANIER
+========================= -->
+<script>
+let panier = {};
+
+const minimums = {};
+document.querySelectorAll(".produit[data-minimum]").forEach(carte => {
+    minimums[carte.dataset.nom] = Number(carte.dataset.minimum);
+});
+const panierDiv = document.getElementById("panier");
+const commandeHidden = document.getElementById("commande-hidden");
+const titrePanier = document.getElementById("titre-panier");
+const messageAjout = document.getElementById("message-ajout");
+const dateInput = document.querySelector('input[type="date"]');
+const maintenant = new Date();
+const aujourdHui = [maintenant.getFullYear(), String(maintenant.getMonth()+1).padStart(2,"0"), String(maintenant.getDate()).padStart(2,"0")].join("-");
+
+dateInput.min = aujourdHui;
+const datesBloquees =
+[
+
+
+    "2026-08-22",
+    "2026-08-23",
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-29",
+    "2026-08-30",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02"
+];
+
+dateInput.addEventListener("change", function()
+{
+    if(datesBloquees.includes(this.value))
+    {
+        alert("🐻 Papa Ours est parti en montagne à la recherche de nouvelles saveurs pour ses futurs biscuits. 🍪⛰️ La biscuiterie sera fermée du 22 août au 2 septembre. Merci de choisir une autre date !");
+
+        this.value = "";
+    }
+});
+      
+document.querySelectorAll(".produit").forEach(function(carte){
+    carte.addEventListener("click", function(){
+        const nom = this.dataset.nom;
+
+        if(panier[nom]){
+            panier[nom]++;
+        } else {
+            panier[nom] = minimums[nom];
+        }
+
+        afficherPanier();
+        afficherMessageAjout(nom);
+    });
+});
+
+function mettreAJourBadges()
+{
+    document.querySelectorAll(".produit").forEach(function(carte)
+    {
+        const nom = carte.dataset.nom;
+        const badge = carte.querySelector(".badge-quantite");
+        const quantite = panier[nom] || 0;
+        badge.textContent = quantite;
+       if(quantite > 0)
+    {
+       badge.classList.add("visible");
+       carte.classList.add("selectionne");
+    }
+else
+{
+    badge.classList.remove("visible");
+    carte.classList.remove("selectionne");
+}
+    });
+}
+  
+function afficherPanier(){
+  mettreAJourBadges();
+    panierDiv.innerHTML = "";
+    const nomsProduits = Object.keys(panier);
+    const totalArticles = nomsProduits.reduce(function(total, nom){
+    return total + panier[nom];
+}, 0);
+
+titrePanier.textContent = "🧺 Mon panier (" + totalArticles + ")";
+  
+    if(nomsProduits.length === 0){
+        panierDiv.innerHTML = '<p class="panier-vide">Aucun produit sélectionné.</p>';
+        commandeHidden.value = "";
+        return;
+    }
+
+    let texteCommande = "";
+
+    nomsProduits.forEach(function(nom){
+        const quantite = panier[nom];
+
+        texteCommande += nom + " x " + quantite + " (minimum : " + minimums[nom] + ")\n";
+
+        const ligne = document.createElement("div");
+        ligne.className = "ligne-panier";
+
+        const libelle = document.createElement("strong");
+        libelle.textContent = nom;
+        ligne.appendChild(libelle);
+        const ajouterBouton = (texte, action, classe) => {
+            const bouton = document.createElement("button");
+            bouton.type = "button";
+            bouton.textContent = texte;
+            if (classe) bouton.className = classe;
+            bouton.addEventListener("click", action);
+            ligne.appendChild(bouton);
+        };
+        ajouterBouton("−", () => modifierQuantite(nom, -1));
+        const compteur = document.createElement("span");
+        compteur.textContent = quantite;
+        ligne.appendChild(compteur);
+        ajouterBouton("+", () => modifierQuantite(nom, 1));
+        ajouterBouton("Supprimer", () => supprimerProduit(nom), "supprimer");
+        panierDiv.appendChild(ligne);
+    });
+
+    commandeHidden.value = texteCommande;
+}
+
+document.querySelector(".formulaire").addEventListener("submit", function(event){
+
+    if(Object.keys(panier).length === 0)
+    {
+        alert("Veuillez sélectionner au moins un biscuit avant d'envoyer votre demande.");
+
+        event.preventDefault();
+
+        return false;
+    }
+
+});
+
+let timerMessage;
+function afficherMessageTexte(texte) {
+    clearTimeout(timerMessage);
+    messageAjout.textContent = texte;
+    messageAjout.classList.add("visible");
+    timerMessage = setTimeout(() => messageAjout.classList.remove("visible"), 2800);
+}
+function afficherMessageAjout(nom) {
+    afficherMessageTexte("✅ " + nom + " ajouté au panier (" + panier[nom] + " pièces)");
+} 
+  
+function modifierQuantite(nom, changement){
+    const nouvelleQuantite = panier[nom] + changement;
+    if (nouvelleQuantite < minimums[nom]) {
+        afficherMessageTexte("Minimum de " + minimums[nom] + " pièces pour cette recette. Utilisez Supprimer pour la retirer.");
+        return;
+    }
+    panier[nom] = nouvelleQuantite;
+    afficherPanier();
+}
+
+function supprimerProduit(nom){
+    delete panier[nom];
+    afficherPanier();
+}
+
+const boutonRetourHaut = document.getElementById("retour-haut");
+
+window.addEventListener("scroll", function()
+{
+    if(window.scrollY > 400)
+    {
+        boutonRetourHaut.classList.add("visible");
+    }
+    else
+    {
+        boutonRetourHaut.classList.remove("visible");
+    }
+});
+
+boutonRetourHaut.addEventListener("click", function()
+{
+    window.scrollTo(
+    {
+        top:0,
+        behavior:"smooth"
+    });
+});
+      
+</script>
+<!-- =========================
+     FIN DU JAVASCRIPT
+========================= -->
+</body>
+</html>
