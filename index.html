@@ -476,7 +476,9 @@ html
 .delai-bandeau strong {display:block; font-size:19px; margin-bottom:5px;}
 .delai-bandeau p {margin:0; font-size:16px;}
 .delai-calendrier {margin:-6px 0 4px; padding:12px 14px; border-radius:12px; background:#fff8ee; text-align:left; font-size:14px; line-height:1.5; color:#5c3b1e;}
-.delai-rappel {margin:0; padding:12px 14px; border-left:4px solid #a77843; background:#fff8ee; border-radius:8px; text-align:left; font-size:14px; line-height:1.5;}
+.delai-accord {display:flex; align-items:flex-start; gap:12px; margin:0; padding:14px; border-left:4px solid #a77843; background:#fff8ee; border-radius:8px; text-align:left; font-size:14px; line-height:1.5; cursor:pointer;}
+.delai-accord input[type="checkbox"] {flex:0 0 auto; width:20px; height:20px; margin:1px 0 0; accent-color:#6b3f1d; cursor:pointer;}
+.formulaire button[type="submit"]:disabled {opacity:0.45; cursor:not-allowed; box-shadow:none; transform:none;}
 </style>   
 </head>
       
@@ -522,11 +524,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="https://instagram.com/lesbiscuitsdepapaours" target="_blank" rel="noopener noreferrer" class="social-btn instagram">📸 Instagram</a>
 
 </nav>
-
-<aside class="delai-bandeau" aria-label="Délai de fabrication">
-    <strong>⏳ Fabrication artisanale sur commande — 7 jours minimum</strong>
-    <p>Prévoir au moins 7 jours de fabrication après confirmation du paiement, sous réserve de disponibilité.</p>
-</aside>
 
 <p class="consigne-devis">Cliquez sur les photos pour ajouter des produits à votre demande de devis.</p>
 <p class="info-livraison">Illustrations non contractuelles.</p>
@@ -1013,7 +1010,6 @@ document.addEventListener("DOMContentLoaded", () => {
           placeholder="allergies alimentaires, heure de livraison, sans noix si possible, merci de me rappeler après 18h... "></textarea>
       <label for="datecommande"> 📅 Date souhaitée de livraison </label>
       <input id="datecommande" type="date" name="Date souhaitée" required>
-      <p class="delai-calendrier">📅 La date choisie est indicative : la livraison nécessite un délai minimum de 7 jours <strong>après confirmation du paiement</strong>. La date définitive sera confirmée dans le devis.</p>
      
       <div class="info-paiement" role="note">
 <strong>Demande de devis sans paiement</strong>
@@ -1022,8 +1018,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <p>Après réception de cet accord écrit, nous vous transmettrons un lien de paiement sécurisé SumUp. La fabrication commencera après confirmation du paiement.</p>
 <p><strong>Fabrication uniquement sur commande :</strong> chaque recette a une quantité minimale indiquée sur sa photo. Une fois ce minimum atteint, vous pouvez augmenter la quantité à l’unité. Aucune commande n’est prélevée sur un stock existant.</p>
 </div>
-<p class="delai-rappel"><strong>Avant d’envoyer :</strong> chaque commande est fabriquée spécialement pour vous. Comptez au moins 7 jours après confirmation du paiement. La date de livraison reste soumise à validation.</p>
-<button type="submit">📨 Envoyer ma demande de devis</button>
+<label class="delai-accord" for="accord-delai">
+  <input type="checkbox" id="accord-delai" name="Délai de fabrication accepté" value="Oui" required>
+  <span>Chaque commande est fabriquée spécialement pour vous. Comptez au moins 7 jours après confirmation du paiement. La date de livraison reste soumise à validation.</span>
+</label>
+<button type="submit" id="envoyer-devis" disabled>📨 Envoyer ma demande de devis</button>
 
     </form>
 
@@ -1180,6 +1179,12 @@ titrePanier.textContent = "🧺 Mon panier (" + totalArticles + ")";
 
     commandeHidden.value = texteCommande;
 }
+
+const accordDelai = document.getElementById("accord-delai");
+const boutonEnvoyerDevis = document.getElementById("envoyer-devis");
+accordDelai.addEventListener("change", () => {
+    boutonEnvoyerDevis.disabled = !accordDelai.checked;
+});
 
 document.querySelector(".formulaire").addEventListener("submit", function(event){
 
