@@ -471,6 +471,12 @@ html
         opacity: 0;
     }
 }
+/* Informations sur les délais de fabrication */
+.delai-bandeau {max-width:900px; margin:0 auto 26px; padding:16px 22px; border:1px solid #dfc8a7; border-radius:16px; background:#fff8ee; color:#5c3b1e; box-sizing:border-box; line-height:1.5;}
+.delai-bandeau strong {display:block; font-size:19px; margin-bottom:5px;}
+.delai-bandeau p {margin:0; font-size:16px;}
+.delai-calendrier {margin:-6px 0 4px; padding:12px 14px; border-radius:12px; background:#fff8ee; text-align:left; font-size:14px; line-height:1.5; color:#5c3b1e;}
+.delai-rappel {margin:0; padding:12px 14px; border-left:4px solid #a77843; background:#fff8ee; border-radius:8px; text-align:left; font-size:14px; line-height:1.5;}
 </style>   
 </head>
       
@@ -517,6 +523,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </nav>
 
+<aside class="delai-bandeau" aria-label="Délai de fabrication">
+    <strong>⏳ Fabrication artisanale sur commande — 7 jours minimum</strong>
+    <p>Prévoir au moins 7 jours de fabrication après confirmation du paiement, sous réserve de disponibilité.</p>
+</aside>
+
 <p class="consigne-devis">Cliquez sur les photos pour ajouter des produits à votre demande de devis.</p>
 <p class="info-livraison">Illustrations non contractuelles.</p>
 
@@ -537,102 +548,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div class="produits">
 
-<div class="produit" data-nom="Cookie Abricot & Pistache" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-abricot-pistache.webp">
-<div class="nom">Cookie Abricot & Pistache</div>
-</div>
-
-<div class="produit" data-nom="Cookie Caramel & Chocolat" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Caramel-Chocolat.webp">
-<div class="nom">Cookie Caramel & Chocolat</div>
-</div>
-
-<div class="produit" data-nom="Cookie Caramel fudge" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Caramel-fudge.webp">
-<div class="nom">Cookie Caramel fudge</div>
-</div>
-
-<div class="produit" data-nom="Cookie Chouchous Caramélisés" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Chouchous-Caramélisés.webp">
-<div class="nom">Cookie Chouchous Caramélisés</div>
-</div>
-
-<div class="produit" data-nom="Cookie Ferrero Rocher" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Ferrero-Rocher.webp">
-<div class="nom">Cookie Ferrero Rocher</div>
-</div>
-
-<div class="produit" data-nom="Cookie Myrtilles & Chocolat noir" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Myrtilles-Chocolat-noir.webp">
-<div class="nom">Cookie Myrtilles & Chocolat noir</div>
-</div>
-
-<div class="produit" data-nom="Cookie Pistache & Chocolat blanc" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Pistache-Chocolat-blanc.webp">
-<div class="nom">Cookie Pistache & Chocolat blanc</div>
-</div>
-
-<div class="produit" data-nom="Cookie Raisins secs" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Raisins-secs.webp">
-<div class="nom">Cookie Raisins secs</div>
-</div>
-
-<div class="produit" data-nom="Cookie Twix" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Cookies-Twix.webp">
-<div class="nom">Cookie Twix</div>
-</div>
-
-<div class="produit" data-nom="Sablés Café" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Café.webp">
-<div class="nom">Sablés Café</div>
-</div>
-
-<div class="produit" data-nom="Sablés Citron & Gingembre" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-citron-gingembre.webp">
-<div class="nom">Sablés Citron & Gingembre</div>
-</div>
-
-<div class="produit" data-nom="Sablés Framboise" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Framboise.webp">
-<div class="nom">Sablés Framboise</div>
-</div>
-
-<div class="produit" data-nom="Sablés Lavande" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-lavande.webp">
-<div class="nom">Sablés Lavande</div>
-</div>
-
-<div class="produit" data-nom="Sablés Myrtilles" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Myrtilles.webp">
-<div class="nom">Sablés Myrtilles</div>
-</div>
-
-<div class="produit" data-nom="Sablés Thé vert & Chocolat noir" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-thé-vert-chocolat-noir.webp">
-<div class="nom">Sablés Thé vert & Chocolat noir</div>
-</div>
-
-<div class="produit" data-nom="Sablés Thé vert" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-thé-vert.webp">
-<div class="nom">Sablés Thé vert</div>
-</div>
-
 <div class="produit" data-nom="Bicolore Pistache & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-pistache-vanille.webp">
@@ -650,7 +565,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <img src="images/Cookie-café-chocolat.webp">
 <div class="nom">Cookie Café & Chocolat</div>
 </div>
-    
+
+<div class="produit" data-nom="Cookie Café & Chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Cookie-café-chocolat.webp">
+<div class="nom">Cookie Café & Chocolat</div>
+</div>
+      
 <div class="produit" data-nom="Cookie Cranberries & Chocolat blanc" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-cranberries-chocolat-blanc.webp">
@@ -753,16 +674,22 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Cookie Pop-Corn</div>
 </div>
 
+<div class="produit" data-nom="Cookie Framboise" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-framboise.webp">
+<div class="nom">Cookie Framboise</div>
+</div>
+
 <div class="produit" data-nom="Cookie Speculos" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-speculos.webp">
 <div class="nom">Cookie Speculos</div>
 </div>
 
-<div class="produit" data-nom="Cookie Noisettes & Chocolat noir" data-minimum="6">
+<div class="produit" data-nom="Cookie Chocolat noir & noisettes" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-noisettes.webp">
-<div class="nom">Cookie Noisettes & Chocolat noir</div>
+<div class="nom">Cookie Chocolat noir & noisettes</div>
 </div>
 
 <div class="produit" data-nom="Spritz Citron" data-minimum="6">
@@ -825,6 +752,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Sablé Anis</div>
 </div>
 
+<div class="produit" data-nom="Cookie Café & Chocolat" data-minimum="6">
+<span class="badge-quantite">0</span>  
+<img src="images/cookies-chocolat-cafe.webp">
+<div class="nom">Cookie Café & Chocolat</div>
+</div>
+
 <div class="produit" data-nom="Muffin Figues" data-minimum="6">
 <span class="badge-quantite">0</span>   
 <img src="images/Muffins-Figues.webp">
@@ -837,10 +770,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Muffin Noix</div>
 </div>
 
-<div class="produit" data-nom="Cookie Fleur de sel & Chocolat noir" data-minimum="6">
+<div class="produit" data-nom="Cookie Chocolat noir & Fleur de sel" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-chocolat-fleur-de-sel.webp">
-<div class="nom">Cookie Fleur de sel & Chocolat noir</div>
+<div class="nom">Cookie Chocolat noir & Fleur de sel</div>
 </div>
 
 <div class="produit" data-nom="Sablé Fleur d'oranger" data-minimum="10">
@@ -871,6 +804,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/cookies-schoko-bons.webp">
 <div class="nom">Cookie Schoko Bons</div>
+</div>
+
+<div class="produit" data-nom="Cookie Abricot & Pistache" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/cookies-abricot-pistache.webp">
+<div class="nom">Cookie Abricot & Pistache</div>
 </div>
 
 <div class="produit" data-nom="Cookie Lavande & Miel" data-minimum="6">
@@ -942,55 +881,55 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Apéroc Oignons</div>
 </div>
 
-<div class="produit" data-nom="Cracker Comté" data-minimum="40">
+<div class="produit" data-nom="Cracker Comté" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-comté.webp">
 <div class="nom">Cracker Comté</div>
 </div>
 
-<div class="produit" data-nom="Cracker Emmental" data-minimum="40">
+<div class="produit" data-nom="Cracker Emmental" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-emmental.webp">
 <div class="nom">Cracker Emmental</div>
 </div>
 
-<div class="produit" data-nom="Cracker Herbes du maquis" data-minimum="40">
+<div class="produit" data-nom="Cracker Herbes du maquis" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-herbes-du-maquis.webp">
 <div class="nom">Cracker Herbes du maquis</div>
 </div>
 
-<div class="produit" data-nom="Cracker Oignons" data-minimum="40">
+<div class="produit" data-nom="Cracker Oignons" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-oignons.webp">
 <div class="nom">Cracker Oignons</div>
 </div>
 
-<div class="produit" data-nom="Cracker Parmesan" data-minimum="40">
+<div class="produit" data-nom="Cracker Parmesan" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-parmesan.webp">
 <div class="nom">Cracker Parmesan</div>
 </div>
 
-<div class="produit" data-nom="Cracker Poulet rôti" data-minimum="40">
+<div class="produit" data-nom="Cracker Poulet rôti" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-poulet-rôti.webp">
 <div class="nom">Cracker Poulet rôti</div>
 </div>
 
-<div class="produit" data-nom="Cracker Romarin & Fleur de sel" data-minimum="40">
+<div class="produit" data-nom="Cracker Romarin & Fleur de sel" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-romarin-fleur-de-sel.webp">
 <div class="nom">Cracker Romarin & Fleur de sel</div>
 </div>
 
-<div class="produit" data-nom="Sablé Parmesan & Thym" data-minimum="10">
+<div class="produit" data-nom="Sablé Parmesan & Thym" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Sablé-parmesan-thym.webp">
 <div class="nom">Sablé Parmesan & Thym</div>
 </div>
 
-<div class="produit" data-nom="Apéroc Parmesan & noisettes" data-minimum="6">
+<div class="produit" data-nom="Apéroc Parmesan & noisettes" data-minimum="10">
 <span class="badge-quantite">0</span>
 <img src="images/Apreocs-noisettes-parmesan.webp">
 <div class="nom">Apéroc Parmesan & noisettes</div>
@@ -1074,6 +1013,7 @@ document.addEventListener("DOMContentLoaded", () => {
           placeholder="allergies alimentaires, heure de livraison, sans noix si possible, merci de me rappeler après 18h... "></textarea>
       <label for="datecommande"> 📅 Date souhaitée de livraison </label>
       <input id="datecommande" type="date" name="Date souhaitée" required>
+      <p class="delai-calendrier">📅 La date choisie est indicative : la livraison nécessite un délai minimum de 7 jours <strong>après confirmation du paiement</strong>. La date définitive sera confirmée dans le devis.</p>
      
       <div class="info-paiement" role="note">
 <strong>Demande de devis sans paiement</strong>
@@ -1082,6 +1022,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <p>Après réception de cet accord écrit, nous vous transmettrons un lien de paiement sécurisé SumUp. La fabrication commencera après confirmation du paiement.</p>
 <p><strong>Fabrication uniquement sur commande :</strong> chaque recette a une quantité minimale indiquée sur sa photo. Une fois ce minimum atteint, vous pouvez augmenter la quantité à l’unité. Aucune commande n’est prélevée sur un stock existant.</p>
 </div>
+<p class="delai-rappel"><strong>Avant d’envoyer :</strong> chaque commande est fabriquée spécialement pour vous. Comptez au moins 7 jours après confirmation du paiement. La date de livraison reste soumise à validation.</p>
 <button type="submit">📨 Envoyer ma demande de devis</button>
 
     </form>
