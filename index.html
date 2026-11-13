@@ -479,6 +479,19 @@ html
 .delai-accord {display:flex; align-items:flex-start; gap:12px; margin:0; padding:14px; border-left:4px solid #a77843; background:#fff8ee; border-radius:8px; text-align:left; font-size:14px; line-height:1.5; cursor:pointer;}
 .delai-accord input[type="checkbox"] {flex:0 0 auto; width:20px; height:20px; margin:1px 0 0; accent-color:#6b3f1d; cursor:pointer;}
 .formulaire button[type="submit"]:disabled {opacity:0.45; cursor:not-allowed; box-shadow:none; transform:none;}
+
+
+/* Curseur personnalisé avec le logo */
+body {
+    cursor: url("images/cookie-cursor2.png") 16 16, auto;
+}
+
+/* Conserver le logo sur les éléments cliquables */
+a, button, .produit {
+    cursor: url("images/cookie-cursor2.png") 16 16, pointer;
+}
+
+
 </style>   
 </head>
       
