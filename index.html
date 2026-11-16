@@ -492,6 +492,13 @@ a, button, .produit {
 }
 
 
+
+/* Titres et séparations des catégories de biscuits */
+.famille-biscuits { max-width:1400px; margin:0 auto; scroll-margin-top:25px; }
+.sous-categorie { margin:42px auto 58px; scroll-margin-top:25px; }
+.titre-sous-categorie { font-size:clamp(23px,2.5vw,30px); color:#6b3f1d; font-weight:600; margin:0 auto 18px; padding:0 12px 12px; border-bottom:2px solid #dfc8a7; max-width:850px; }
+.sous-categorie .produits { margin-top:24px; }
+
 </style>   
 </head>
       
@@ -550,104 +557,20 @@ document.addEventListener("DOMContentLoaded", () => {
      GALERIE DES PRODUITS
 ========================= -->
 
-<!-- =========================
-     Biscuits sucrés
-========================= -->
-      
-<h2 id="sucre" class="categorie">🍪 Biscuits sucrés</h2>
+<!-- GALERIE DES PRODUITS : catégories indépendantes -->
 
-<div class="produits">
+<section id="sucre" class="famille-biscuits" aria-label="Biscuits sucrés">
+<h2 class="categorie">🍪 Biscuits sucrés</h2>
 
-<div class="produit" data-nom="Brookie pour 6 personnes" data-minimum="1">
-<span class="badge-quantite">0</span>
-<img src="images/Brookie.webp">
-<div class="nom">Brookie pour 6 personnes</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Amandes" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Amandes.webp">
-<div class="nom">Spritz Amandes</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Cannelle" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Cannelle.webp">
-<div class="nom">Spritz Cannelle</div>
-</div> 
-           
-<div class="produit" data-nom="Spritz Chocolat blanc" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Chocolat-blanc.webp">
-<div class="nom">Spritz Chocolat blanc</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Chocolat noir" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Chocolat-noir.webp">
-<div class="nom">Spritz Chocolat noir</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Citron" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Citron.webp">
-<div class="nom">Spritz Citron</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Figues" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Figues.webp">
-<div class="nom">Spritz Figues</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Lavande" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Lavande.webp">
-<div class="nom">Spritz Lavande</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Miel & Vanille" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Miel-Vanille.webp">
-<div class="nom">Spritz Miel & Vanille</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Noisette" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Noisette.webp">
-<div class="nom">Spritz Noisette</div>
-</div> 
-     
-<div class="produit" data-nom="Spritz Orange" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Orange.webp">
-<div class="nom">Spritz Orange</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Raisins secs" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Raisins-secs.webp">
-<div class="nom">Spritz Raisins secs</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Spéculoos" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Spéculoos.webp">
-<div class="nom">Spritz Spéculoos</div>
-</div> 
-      
-<div class="produit" data-nom="Spritz Thym & Citron" data-minimum="4">
-<span class="badge-quantite">0</span>
-<img src="images/Spritz-Thym-Citron.webp">
-<div class="nom">Spritz Thym & Citron</div>
-</div> 
-
+<section class="sous-categorie" id="bicolores">
+<h3 class="titre-sous-categorie">Bicolores</h3>
+<div class="produits" data-categorie="bicolores">
 <div class="produit" data-nom="Bicolore Chocolat noir & Cacahuète" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-cacahuète-chocolat.webp">
 <div class="nom">Bicolore Chocolat noir & Cacahuète</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Café & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Café-Vanille.webp">
@@ -658,8 +581,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-caramel-beurre-salé-vanille.webp">
 <div class="nom">Bicolore Caramel beurre salé & vanille</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Café & Chocolat noir" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-chocolat-café.webp">
@@ -670,8 +593,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Chocolat-en-poudre-Vanille.webp">
 <div class="nom">Bicolore Chocolat en poudre & Vanille</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Pain d’épices & Chocolat noir" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Chocolat-Pain-d’épices.webp">
@@ -682,8 +605,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Chocolat-Vanille.webp">
 <div class="nom">Bicolore Chocolat & Vanille</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Citron-Gingembre & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Citron-Gingembre-Vanille.webp">
@@ -694,8 +617,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Eclats-de-Spéculos-Vanille.webp">
 <div class="nom">Bicolore Eclats de Spéculos & Vanille</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Fleur d’oranger & Amande-Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Fleur-d’oranger-Amande-Vanille.webp">
@@ -706,8 +629,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Framboise-Citron-Vanille.webp">
 <div class="nom">Bicolore Framboise-Citron & Vanille</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Lavande-Miel & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Lavande-Miel-Vanille.webp">
@@ -718,8 +641,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Orange-Miel-Amandes-torréfiées-Vanille.webp">
 <div class="nom">Bicolore Orange-Miel & Amandes torréfiées-Vanille</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Pépites de chocolat & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Pépites-de-chocolat-Vanille.webp">
@@ -730,8 +653,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Pistache-Chocolat-blanc.webp">
 <div class="nom">Bicolore Pistache & Chocolat blanc</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Raisin-Miel & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Raisin-Miel-Vanille.webp">
@@ -742,14 +665,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Spéculoos-Chocolat.webp">
 <div class="nom">Bicolore Spéculoos & Chocolat</div>
-</div> 
-      
+</div>
+
 <div class="produit" data-nom="Bicolore Thym-Citron & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-Thym-Citron-Vanille.webp">
 <div class="nom">Bicolore Thym-Citron & Vanille</div>
 </div>
-      
+
 <div class="produit" data-nom="Bicolore Pistache & Vanille" data-minimum="9">
 <span class="badge-quantite">0</span>
 <img src="images/Bicolore-pistache-vanille.webp">
@@ -761,107 +684,69 @@ document.addEventListener("DOMContentLoaded", () => {
 <img src="images/Bicolore-vanille-chocolat.webp">
 <div class="nom">Bicolore Chocolat 90% & Vanille</div>
 </div>
+</div>
+</section>
 
+<section class="sous-categorie" id="brookies">
+<h3 class="titre-sous-categorie">Brookies</h3>
+<div class="produits" data-categorie="brookies">
+<div class="produit" data-nom="Brookie pour 6 personnes" data-minimum="1">
+<span class="badge-quantite">0</span>
+<img src="images/Brookie.webp">
+<div class="nom">Brookie pour 6 personnes</div>
+</div>
+</div>
+</section>
+
+<section class="sous-categorie" id="cookies">
+<h3 class="titre-sous-categorie">Cookies</h3>
+<div class="produits" data-categorie="cookies">
 <div class="produit" data-nom="Cookie Café & Chocolat" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookie-café-chocolat.webp">
 <div class="nom">Cookie Café & Chocolat</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Cranberries & Chocolat blanc" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-cranberries-chocolat-blanc.webp">
 <div class="nom">Cookie Cranberries & Chocolat blanc</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Croissant" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-croissant.webp">
 <div class="nom">Cookie Croissant</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Gingembre confit & Chocolat noir" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-gingembre-confit-chocolat-noir.webp">
 <div class="nom">Cookie Gingembre confit & Chocolat noir</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie KitKat" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-KitKat.webp">
 <div class="nom">Cookie KitKat</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Pain au chocolat" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-pain-chocolat.webp">
 <div class="nom">Cookie Pain au chocolat</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Pain d'épices & Chocolat noir" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-pain-épices-chocolat-noir.webp">
 <div class="nom">Cookie Pain d'épices & Chocolat noir</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Praliné & Noisettes torréfiées" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Cookies-praliné-noisettes-torréfiées.webp">
 <div class="nom">Cookie Praliné & Noisettes torréfiées</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Amandes torréfiées" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-amandes-torréfiées.webp">
-<div class="nom">Sablé Amandes torréfiées</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Cacao & Epices de Noël" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-cacao-épices-Noël.webp">
-<div class="nom">Sablé Cacao & Epices de Noël</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Cannelle" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-cannelle.webp">
-<div class="nom">Sablé Cannelle</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Châtaigne & Noix" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-châtaigne-noix.webp">
-<div class="nom">Sablé Châtaigne & Noix</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Clémentine & Chocolat noir" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-clémentine-chocolat-noir.webp">
-<div class="nom">Sablé Clémentine & Chocolat noir</div>
-</div>
-
-<div class="produit" data-nom="Sablé Earl Grey & Chocolat noir" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Earl-Grey-chocolat.webp">
-<div class="nom">Sablé Earl Grey & Chocolat noir</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Figues & Noix" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-figues-noix.webp">
-<div class="nom">Sablé Figues & Noix</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Orange & Amandes" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-orange-amandes.webp">
-<div class="nom">Sablé Orange & Amandes</div>
-</div>
-      
-<div class="produit" data-nom="Sablé Pain d'épices & Noix" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-pain-épices-noix.webp">
-<div class="nom">Sablé Pain d'épices & Noix</div>
 </div>
 
 <div class="produit" data-nom="Cookie Pop-Corn" data-minimum="6">
@@ -881,25 +766,25 @@ document.addEventListener("DOMContentLoaded", () => {
 <img src="images/cookies-noisettes.webp">
 <div class="nom">Cookie Chocolat noir & noisettes</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Framboise & chocolat blanc" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-framboise.webp">
 <div class="nom">Cookie Framboise & chocolat blanc</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Noix de Pécan & chocolat noir" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-noix-de-pecan.webp">
 <div class="nom">Cookie Noix de Pécan & chocolat noir</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Peanut M&M's" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies- M&Ms.webp">
 <div class="nom">Cookie Peanut M&M's</div>
 </div>
-      
+
 <div class="produit" data-nom="Cookie Bounty" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-bounty.webp">
@@ -911,7 +796,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <img src="images/cookies-erable-pecan.webp">
 <div class="nom">Cookie Sirop d'érable & noix de pécan</div>
 </div>
- 
+
 <div class="produit" data-nom="Cookie aux chips" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-chips.webp">
@@ -930,54 +815,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Cookie Oréo</div>
 </div>
 
-<div class="produit" data-nom="Sablé Anis" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-anis.webp">
-<div class="nom">Sablé Anis</div>
-</div>
-
-<div class="produit" data-nom="Muffin Figues" data-minimum="6">
-<span class="badge-quantite">0</span>   
-<img src="images/Muffins-Figues.webp">
-<div class="nom">Muffin Figues</div>
-</div>
-
-<div class="produit" data-nom="Muffin Noix" data-minimum="6">
-<span class="badge-quantite">0</span>   
-<img src="images/Muffins-Noix.webp">
-<div class="nom">Muffin Noix</div>
-</div>
-
 <div class="produit" data-nom="Cookie Chocolat noir & Fleur de sel" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-chocolat-fleur-de-sel.webp">
 <div class="nom">Cookie Chocolat noir & Fleur de sel</div>
 </div>
 
-<div class="produit" data-nom="Sablé Fleur d'oranger" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Fleurs-Oranger.webp">
-<div class="nom">Sablé Fleur d'oranger</div>
-</div>
-  
-<div class="produit" data-nom="Sablé Zeste de citron" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-citron.webp">
-<div class="nom">Sablé Zeste de citron</div>
-</div>
-
-<div class="produit" data-nom="Sablé Noisette" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Noisettes.webp">
-<div class="nom">Sablé Noisette</div>
-</div>
-
-<div class="produit" data-nom="Sablé Fleur d'oranger & Amandes" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Amandes-Fleurs-oranger.webp">
-<div class="nom">Sablé Fleur d'oranger & Amandes</div>
-</div>
-  
 <div class="produit" data-nom="Cookie Schoko Bons" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/cookies-schoko-bons.webp">
@@ -994,7 +837,24 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/cookies-lavande-miel.webp">
 <div class="nom">Cookie Lavande & Miel</div>
-</div>     
+</div>
+</div>
+</section>
+
+<section class="sous-categorie" id="muffins">
+<h3 class="titre-sous-categorie">Muffins</h3>
+<div class="produits" data-categorie="muffins">
+<div class="produit" data-nom="Muffin Figues" data-minimum="6">
+<span class="badge-quantite">0</span>   
+<img src="images/Muffins-Figues.webp">
+<div class="nom">Muffin Figues</div>
+</div>
+
+<div class="produit" data-nom="Muffin Noix" data-minimum="6">
+<span class="badge-quantite">0</span>   
+<img src="images/Muffins-Noix.webp">
+<div class="nom">Muffin Noix</div>
+</div>
 
 <div class="produit" data-nom="Muffin Caramel & Noix" data-minimum="6">
 <span class="badge-quantite">0</span>
@@ -1014,183 +874,276 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Muffin Chocolat noir</div>
 </div>
 
-<div class="produit" data-nom="Tartelette Noix de coco" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Tartelettes-Coco.webp">
-<div class="nom">Tartelette Noix de coco</div>
-</div>
-      
 <div class="produit" data-nom="Muffin Noix de coco" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Muffins-Noix-de-coco.webp">
 <div class="nom">Muffin Noix de coco</div>
 </div>
 </div>
+</section>
 
-<!-- =========================
-     Biscuits salés
-========================= -->
-      
-<h2 id="sale" class="categorie">🧀 Biscuits salés</h2>
+<section class="sous-categorie" id="sables-sucres">
+<h3 class="titre-sous-categorie">Sablés sucrés</h3>
+<div class="produits" data-categorie="sables-sucres">
+<div class="produit" data-nom="Sablé Amandes torréfiées" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-amandes-torréfiées.webp">
+<div class="nom">Sablé Amandes torréfiées</div>
+</div>
 
-<div class="produits">
+<div class="produit" data-nom="Sablé Cacao & Epices de Noël" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-cacao-épices-Noël.webp">
+<div class="nom">Sablé Cacao & Epices de Noël</div>
+</div>
 
-<div class="produit" data-nom="Sablés Anchois & Parmesan" data-minimum="10">
+<div class="produit" data-nom="Sablé Cannelle" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Sablés-Anchois-Parmesan.webp">
-<div class="nom">Sablés Anchois & Parmesan</div>
-</div>  
-      
-<div class="produit" data-nom="Sablés Cheddar & Ail" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Cheddar-Ail.webp">
-<div class="nom">Sablés Cheddar & Ail</div>
-</div>  
-      
-<div class="produit" data-nom="Sablés Comté & Pignons de pin" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Comté-Pignons-de-pin.webp">
-<div class="nom">Sablés Comté & Pignons de pin</div>
-</div>   
-      
-<div class="produit" data-nom="Sablés Emmental & Ail" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Emmental-Ail.webp">
-<div class="nom">Sablés Emmental & Ail</div>
-</div>  
-      
-<div class="produit" data-nom="Sablés Emmental-Oignons frits & Noix" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Emmental-Oignons-frits-Noix.webp">
-<div class="nom">Sablés Emmental-Oignons frits & Noix</div>
-</div>   
-      
-<div class="produit" data-nom="Sablés Emmental & Thym" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Emmental-Thym.webp">
-<div class="nom">Sablés Emmental & Thym</div>
-</div>  
-      
-<div class="produit" data-nom="Sablés Herbes de Provence" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Herbes-de-Provence.webp">
-<div class="nom">Sablés Herbes de Provence</div>
-</div>         
+<img src="images/Sablés-cannelle.webp">
+<div class="nom">Sablé Cannelle</div>
+</div>
 
-<div class="produit" data-nom="Sablés Oignons frits & Noix" data-minimum="10">
+<div class="produit" data-nom="Sablé Châtaigne & Noix" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Sablés-Oignons-frits-Noix.webp">
-<div class="nom">Sablés Oignons frits & Noix</div>
-</div>  
-      
-<div class="produit" data-nom="Sablés Tomates séchées & Parmesan" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablés-Tomates-séchées-Parmesan.webp">
-<div class="nom">Sablés Tomates séchées & Parmesan</div>
-</div>        
+<img src="images/Sablés-châtaigne-noix.webp">
+<div class="nom">Sablé Châtaigne & Noix</div>
+</div>
 
-<div class="produit" data-nom="Crackers Tex-Mex" data-minimum="40">
+<div class="produit" data-nom="Sablé Clémentine & Chocolat noir" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Crackers-Tex-Mex.webp">
-<div class="nom">Crackers Tex-Mex</div>
+<img src="images/Sablés-clémentine-chocolat-noir.webp">
+<div class="nom">Sablé Clémentine & Chocolat noir</div>
 </div>
-      
-<div class="produit" data-nom="Crackers Pesto vert & Pignons" data-minimum="40">
+
+<div class="produit" data-nom="Sablé Earl Grey & Chocolat noir" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Crackers-Pesto vert-Pignons.webp">
-<div class="nom">Crackers Pesto vert & Pignons</div>
+<img src="images/Sablés-Earl-Grey-chocolat.webp">
+<div class="nom">Sablé Earl Grey & Chocolat noir</div>
 </div>
-      
-<div class="produit" data-nom="Crackers Pesto rouge & Noix" data-minimum="40">
+
+<div class="produit" data-nom="Sablé Figues & Noix" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Crackers-Pesto rouge-Noix.webp">
-<div class="nom">Crackers Pesto rouge & Noix</div>
+<img src="images/Sablés-figues-noix.webp">
+<div class="nom">Sablé Figues & Noix</div>
 </div>
-      
-<div class="produit" data-nom="Crackers Olive noire & Thym" data-minimum="40">
+
+<div class="produit" data-nom="Sablé Orange & Amandes" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Crackers-Olive noire-Thym.webp">
-<div class="nom">Crackers Olive noire & Thym</div>
+<img src="images/Sablés-orange-amandes.webp">
+<div class="nom">Sablé Orange & Amandes</div>
 </div>
-      
-<div class="produit" data-nom="Crackers Comté & Poivre noir" data-minimum="40">
+
+<div class="produit" data-nom="Sablé Pain d'épices & Noix" data-minimum="10">
 <span class="badge-quantite">0</span>
-<img src="images/Crackers-Comté-Poivre noir.webp">
-<div class="nom">Crackers Comté & Poivre noir</div>
+<img src="images/Sablés-pain-épices-noix.webp">
+<div class="nom">Sablé Pain d'épices & Noix</div>
 </div>
- 
+
+<div class="produit" data-nom="Sablé Anis" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-anis.webp">
+<div class="nom">Sablé Anis</div>
+</div>
+
+<div class="produit" data-nom="Sablé Fleur d'oranger" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Fleurs-Oranger.webp">
+<div class="nom">Sablé Fleur d'oranger</div>
+</div>
+
+<div class="produit" data-nom="Sablé Zeste de citron" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-citron.webp">
+<div class="nom">Sablé Zeste de citron</div>
+</div>
+
+<div class="produit" data-nom="Sablé Noisette" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Noisettes.webp">
+<div class="nom">Sablé Noisette</div>
+</div>
+
+<div class="produit" data-nom="Sablé Fleur d'oranger & Amandes" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Amandes-Fleurs-oranger.webp">
+<div class="nom">Sablé Fleur d'oranger & Amandes</div>
+</div>
+</div>
+</section>
+
+<section class="sous-categorie" id="spritz">
+<h3 class="titre-sous-categorie">Spritz</h3>
+<div class="produits" data-categorie="spritz">
+<div class="produit" data-nom="Spritz Amandes" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Amandes.webp">
+<div class="nom">Spritz Amandes</div>
+</div>
+
+<div class="produit" data-nom="Spritz Cannelle" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Cannelle.webp">
+<div class="nom">Spritz Cannelle</div>
+</div>
+
+<div class="produit" data-nom="Spritz Chocolat blanc" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Chocolat-blanc.webp">
+<div class="nom">Spritz Chocolat blanc</div>
+</div>
+
+<div class="produit" data-nom="Spritz Chocolat noir" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Chocolat-noir.webp">
+<div class="nom">Spritz Chocolat noir</div>
+</div>
+
+<div class="produit" data-nom="Spritz Citron" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Citron.webp">
+<div class="nom">Spritz Citron</div>
+</div>
+
+<div class="produit" data-nom="Spritz Figues" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Figues.webp">
+<div class="nom">Spritz Figues</div>
+</div>
+
+<div class="produit" data-nom="Spritz Lavande" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Lavande.webp">
+<div class="nom">Spritz Lavande</div>
+</div>
+
+<div class="produit" data-nom="Spritz Miel & Vanille" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Miel-Vanille.webp">
+<div class="nom">Spritz Miel & Vanille</div>
+</div>
+
+<div class="produit" data-nom="Spritz Noisette" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Noisette.webp">
+<div class="nom">Spritz Noisette</div>
+</div>
+
+<div class="produit" data-nom="Spritz Orange" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Orange.webp">
+<div class="nom">Spritz Orange</div>
+</div>
+
+<div class="produit" data-nom="Spritz Raisins secs" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Raisins-secs.webp">
+<div class="nom">Spritz Raisins secs</div>
+</div>
+
+<div class="produit" data-nom="Spritz Spéculoos" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Spéculoos.webp">
+<div class="nom">Spritz Spéculoos</div>
+</div>
+
+<div class="produit" data-nom="Spritz Thym & Citron" data-minimum="4">
+<span class="badge-quantite">0</span>
+<img src="images/Spritz-Thym-Citron.webp">
+<div class="nom">Spritz Thym & Citron</div>
+</div>
+</div>
+</section>
+
+<section class="sous-categorie" id="tartelettes">
+<h3 class="titre-sous-categorie">Tartelettes</h3>
+<div class="produits" data-categorie="tartelettes">
+<div class="produit" data-nom="Tartelette Noix de coco" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Tartelettes-Coco.webp">
+<div class="nom">Tartelette Noix de coco</div>
+</div>
+</div>
+</section>
+</section>
+
+<section id="sale" class="famille-biscuits" aria-label="Biscuits salés">
+<h2 class="categorie">🧀 Biscuits salés</h2>
+
+<section class="sous-categorie" id="aperocs">
+<h3 class="titre-sous-categorie">Apérocs</h3>
+<div class="produits" data-categorie="aperocs">
 <div class="produit" data-nom="Apéroc Moutarde à l'ancienne" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Moutarde-à-l-ancienne.webp">
 <div class="nom">Apéroc Moutarde à l'ancienne</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Herbes de Provence" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Herbes-de-Provence.webp">
 <div class="nom">Apéroc Herbes de Provence</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Emmental & Paprika fumé" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Emmental-Paprika-fumé.webp">
 <div class="nom">Apéroc Emmental & Paprika fumé</div>
-</div>     
+</div>
 
 <div class="produit" data-nom="Apéroc Emmental & Ail" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Emmental-Ail.webp">
 <div class="nom">Apéroc Emmental & Ail</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Comté & Pignons de pin" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Comté-Pignons-de-pin.webp">
 <div class="nom">Apéroc Comté & Pignons de pin</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Comté-Olives noires & Origan" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Comté-Olives-noires-Origan.webp">
 <div class="nom">Apéroc Comté-Olives noires & Origan</div>
-</div>     
-      
+</div>
+
 <div class="produit" data-nom="Apéroc Cheddar & Romarin" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Cheddar-Romarin.webp">
 <div class="nom">Apéroc Cheddar & Romarin</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Cheddar & Pavot" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Cheddar-Pavot.webp">
 <div class="nom">Apéroc Cheddar & Pavot</div>
-</div>     
+</div>
 
 <div class="produit" data-nom="Apéroc Romarin & Fleur de Sel" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Romarin-Fleur-de-Sel.webp">
 <div class="nom">Apéroc Romarin & Fleur de Sel</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Cheddar & Paprika fumé" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Cheddar-Paprika-fumé.webp">
 <div class="nom">Apéroc Cheddar & Paprika fumé</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Cheddar & Ail" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Cheddar-Ail.webp">
 <div class="nom">Apéroc Cheddar & Ail</div>
-</div>     
+</div>
 
 <div class="produit" data-nom="Apéroc Anchois-Parmesan & Poivre-noir" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Apérocs-Anchois-Parmesan-Poivre-noir.webp">
 <div class="nom">Apéroc Anchois-Parmesan & Poivre-noir</div>
 </div>
-      
+
 <div class="produit" data-nom="Apéroc Comté & Noix" data-minimum="6">
 <span class="badge-quantite">0</span>
 <img src="images/Aperocs-comté-noix.webp">
@@ -1201,6 +1154,47 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Aperocs-oignons.webp">
 <div class="nom">Apéroc Oignons</div>
+</div>
+
+<div class="produit" data-nom="Apéroc Parmesan & noisettes" data-minimum="6">
+<span class="badge-quantite">0</span>
+<img src="images/Apreocs-noisettes-parmesan.webp">
+<div class="nom">Apéroc Parmesan & noisettes</div>
+</div>
+</div>
+</section>
+
+<section class="sous-categorie" id="crackers">
+<h3 class="titre-sous-categorie">Crackers</h3>
+<div class="produits" data-categorie="crackers">
+<div class="produit" data-nom="Crackers Tex-Mex" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-Tex-Mex.webp">
+<div class="nom">Crackers Tex-Mex</div>
+</div>
+
+<div class="produit" data-nom="Crackers Pesto vert & Pignons" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-Pesto vert-Pignons.webp">
+<div class="nom">Crackers Pesto vert & Pignons</div>
+</div>
+
+<div class="produit" data-nom="Crackers Pesto rouge & Noix" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-Pesto rouge-Noix.webp">
+<div class="nom">Crackers Pesto rouge & Noix</div>
+</div>
+
+<div class="produit" data-nom="Crackers Olive noire & Thym" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-Olive noire-Thym.webp">
+<div class="nom">Crackers Olive noire & Thym</div>
+</div>
+
+<div class="produit" data-nom="Crackers Comté & Poivre noir" data-minimum="40">
+<span class="badge-quantite">0</span>
+<img src="images/Crackers-Comté-Poivre noir.webp">
+<div class="nom">Crackers Comté & Poivre noir</div>
 </div>
 
 <div class="produit" data-nom="Cracker Comté" data-minimum="40">
@@ -1245,36 +1239,23 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="nom">Cracker Romarin & Fleur de sel</div>
 </div>
 
-<div class="produit" data-nom="Sablé Parmesan & Thym" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablé-parmesan-thym.webp">
-<div class="nom">Sablé Parmesan & Thym</div>
-</div>
-
-<div class="produit" data-nom="Apéroc Parmesan & noisettes" data-minimum="6">
-<span class="badge-quantite">0</span>
-<img src="images/Apreocs-noisettes-parmesan.webp">
-<div class="nom">Apéroc Parmesan & noisettes</div>
-</div>    
-            
-<div class="produit" data-nom="Sablé Emmental & noix" data-minimum="10">
-<span class="badge-quantite">0</span>
-<img src="images/Sablé-emmental-noix.webp">
-<div class="nom">Sablé Emmental & noix</div>
-</div>    
-
 <div class="produit" data-nom="Cracker Moutarde à l'ancienne" data-minimum="40">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-moutarde-ancienne.webp">
 <div class="nom">Cracker Moutarde à l'ancienne</div>
 </div>
-      
+
 <div class="produit" data-nom="Cracker Paprika fumé" data-minimum="40">
 <span class="badge-quantite">0</span>
 <img src="images/Crackers-paprika-fumé.webp">
 <div class="nom">Cracker Paprika fumé</div>
 </div>
- 
+</div>
+</section>
+
+<section class="sous-categorie" id="madeleines-salees">
+<h3 class="titre-sous-categorie">Madeleines salées</h3>
+<div class="produits" data-categorie="madeleines-salees">
 <div class="produit" data-nom="Madeleine Pesto & Pignons de pins" data-minimum="12">
 <span class="badge-quantite">0</span>
 <img src="images/Madeleine-pesto-pignons.webp">
@@ -1297,14 +1278,87 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="badge-quantite">0</span>
 <img src="images/Madeleine-moutarde-ancienne.webp">
 <div class="nom">Madeleine Moutarde à l'ancienne</div>
-</div>   
+</div>
+</div>
+</section>
+
+<section class="sous-categorie" id="sables-sales">
+<h3 class="titre-sous-categorie">Sablés salés</h3>
+<div class="produits" data-categorie="sables-sales">
+<div class="produit" data-nom="Sablés Anchois & Parmesan" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Anchois-Parmesan.webp">
+<div class="nom">Sablés Anchois & Parmesan</div>
+</div>
+
+<div class="produit" data-nom="Sablés Cheddar & Ail" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Cheddar-Ail.webp">
+<div class="nom">Sablés Cheddar & Ail</div>
+</div>
+
+<div class="produit" data-nom="Sablés Comté & Pignons de pin" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Comté-Pignons-de-pin.webp">
+<div class="nom">Sablés Comté & Pignons de pin</div>
+</div>
+
+<div class="produit" data-nom="Sablés Emmental & Ail" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Emmental-Ail.webp">
+<div class="nom">Sablés Emmental & Ail</div>
+</div>
+
+<div class="produit" data-nom="Sablés Emmental-Oignons frits & Noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Emmental-Oignons-frits-Noix.webp">
+<div class="nom">Sablés Emmental-Oignons frits & Noix</div>
+</div>
+
+<div class="produit" data-nom="Sablés Emmental & Thym" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Emmental-Thym.webp">
+<div class="nom">Sablés Emmental & Thym</div>
+</div>
+
+<div class="produit" data-nom="Sablés Herbes de Provence" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Herbes-de-Provence.webp">
+<div class="nom">Sablés Herbes de Provence</div>
+</div>
+
+<div class="produit" data-nom="Sablés Oignons frits & Noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Oignons-frits-Noix.webp">
+<div class="nom">Sablés Oignons frits & Noix</div>
+</div>
+
+<div class="produit" data-nom="Sablés Tomates séchées & Parmesan" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablés-Tomates-séchées-Parmesan.webp">
+<div class="nom">Sablés Tomates séchées & Parmesan</div>
+</div>
+
+<div class="produit" data-nom="Sablé Parmesan & Thym" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablé-parmesan-thym.webp">
+<div class="nom">Sablé Parmesan & Thym</div>
+</div>
+
+<div class="produit" data-nom="Sablé Emmental & noix" data-minimum="10">
+<span class="badge-quantite">0</span>
+<img src="images/Sablé-emmental-noix.webp">
+<div class="nom">Sablé Emmental & noix</div>
+</div>
 
 <div class="produit" data-nom="Sablé Comté" data-minimum="10">
 <span class="badge-quantite">0</span>
 <img src="images/Sablé-comté.webp">
 <div class="nom">Sablé Comté</div>
-</div>            
 </div>
+</div>
+</section>
+</section>
 
 <!-- =========================
      PANIER
@@ -1577,5 +1631,42 @@ boutonRetourHaut.addEventListener("click", function()
 <!-- =========================
      FIN DU JAVASCRIPT
 ========================= -->
+
+<script>
+// Les nouveaux biscuits rejoignent automatiquement leur sous-catégorie.
+document.addEventListener("DOMContentLoaded", () => {
+  const normaliser = texte => (texte || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const destination = carte => {
+    const nom = normaliser(carte.dataset.nom || carte.querySelector(".nom")?.textContent);
+    let id;
+    if (nom.startsWith("bicolore")) id = "bicolores";
+    else if (nom.startsWith("brookie")) id = "brookies";
+    else if (nom.startsWith("cookie")) id = "cookies";
+    else if (nom.startsWith("muffin")) id = "muffins";
+    else if (nom.startsWith("spritz")) id = "spritz";
+    else if (nom.startsWith("tartelette")) id = "tartelettes";
+    else if (nom.startsWith("aperoc")) id = "aperocs";
+    else if (nom.startsWith("cracker")) id = "crackers";
+    else if (nom.startsWith("madeleine")) id = "madeleines-salees";
+    else if (nom.startsWith("sable")) id = carte.closest("#sale") ? "sables-sales" : "sables-sucres";
+    return id ? document.querySelector(`#${id} .produits`) : null;
+  };
+  let transfert = false;
+  const reclasser = () => {
+    if (transfert) return;
+    transfert = true;
+    try {
+      document.querySelectorAll(".produits > .produit").forEach(carte => {
+        const cible = destination(carte);
+        if (cible && carte.parentElement !== cible) cible.appendChild(carte);
+      });
+    } finally { transfert = false; }
+  };
+  document.querySelectorAll(".famille-biscuits").forEach(famille => {
+    new MutationObserver(reclasser).observe(famille, {childList:true, subtree:true});
+  });
+  reclasser();
+});
+</script>
 </body>
 </html>
