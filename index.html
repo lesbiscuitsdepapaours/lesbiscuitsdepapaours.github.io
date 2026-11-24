@@ -1595,6 +1595,7 @@ formulaireDevis.addEventListener("submit", async function(event) {
         envoiReussi = true;
         etatEnvoi.textContent = "Votre demande de devis a bien été transmise. Merci !";
         boutonEnvoyerDevis.textContent = "Demande transmise";
+        window.location.assign("https://lesbiscuitsdepapaours.fr/merci.html");
     } catch (erreur) {
         etatEnvoi.textContent = "La transmission de votre demande n'a pas pu être confirmée. Vos informations sont conservées. Veuillez réessayer ou nous contacter par e-mail.";
     } finally {
