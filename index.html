@@ -1371,16 +1371,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="panier-vide">Aucun produit sélectionné.</p>
     </div>
 
-    <form action="https://formsubmit.co/lesbiscuitsdepapaours@gmail.com" method="POST" class="formulaire">
-        <input type="hidden" name="_subject" value="Nouvelle demande de devis - Les Biscuits de Papa Ours">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none"> 
+    <form action="https://api.web3forms.com/submit" method="POST" class="formulaire">
+        <input type="hidden" name="subject" value="Nouvelle demande de devis - Les Biscuits de Papa Ours">
+        <input type="hidden" name="access_key" value="354c592a-1c48-4c3a-bb95-d3b31b21bde5">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none"> 
         <input type="hidden" name="Commande" id="commande-hidden">
         <input type="text" name="Nom" placeholder="Nom" required>
         <input type="text" name="Prénom" placeholder="Prénom" required>
         <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
-        <input type="email" name="Email" placeholder="Adresse e-mail" maxlength="100" autocomplete="email" required>
-        <input type="hidden" name="_next" value="https://lesbiscuitsdepapaours.fr/merci.html">
+        <input type="email" name="email" placeholder="Adresse e-mail" maxlength="100" autocomplete="email" required>
         <label for="commentaire">💬 Une demande particulière ?</label>
        <textarea id="commentaire"
           name="Commentaire"
@@ -1403,6 +1402,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </label>
 <button type="submit" id="envoyer-devis" disabled>📨 Envoyer ma demande de devis</button>
 
+    <p id="etat-envoi" role="status" aria-live="polite" hidden></p>
     </form>
 
 </div>
@@ -1561,21 +1561,47 @@ titrePanier.textContent = "🧺 Mon panier (" + totalArticles + ")";
 
 const accordDelai = document.getElementById("accord-delai");
 const boutonEnvoyerDevis = document.getElementById("envoyer-devis");
-accordDelai.addEventListener("change", () => {
-    boutonEnvoyerDevis.disabled = !accordDelai.checked;
-});
-
-document.querySelector(".formulaire").addEventListener("submit", function(event){
-
-    if(Object.keys(panier).length === 0)
-    {
+let envoiEnCours = false;
+let envoiReussi = false;
+const formulaireDevis = document.querySelector(".formulaire");
+const etatEnvoi = document.getElementById("etat-envoi");
+function actualiserBoutonDevis() {
+    boutonEnvoyerDevis.disabled = !accordDelai.checked || envoiEnCours || envoiReussi;
+}
+accordDelai.addEventListener("change", actualiserBoutonDevis);
+actualiserBoutonDevis();
+formulaireDevis.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    if (envoiEnCours || envoiReussi || !accordDelai.checked) return;
+    if (Object.keys(panier).length === 0) {
         alert("Veuillez sélectionner au moins un biscuit avant d'envoyer votre demande.");
-
-        event.preventDefault();
-
-        return false;
+        return;
     }
-
+    envoiEnCours = true;
+    actualiserBoutonDevis();
+    etatEnvoi.hidden = false;
+    etatEnvoi.textContent = "Envoi de votre demande en cours…";
+    const controleur = new AbortController();
+    const minuterie = setTimeout(() => controleur.abort(), 30000);
+    try {
+        const reponse = await fetch(formulaireDevis.action, {
+            method: "POST",
+            headers: {Accept: "application/json"},
+            body: new FormData(formulaireDevis),
+            signal: controleur.signal
+        });
+        const resultat = await reponse.json();
+        if (!reponse.ok || resultat.success !== true) throw new Error("Envoi non confirmé");
+        envoiReussi = true;
+        etatEnvoi.textContent = "Votre demande de devis a bien été transmise. Merci !";
+        boutonEnvoyerDevis.textContent = "Demande transmise";
+    } catch (erreur) {
+        etatEnvoi.textContent = "La transmission de votre demande n'a pas pu être confirmée. Vos informations sont conservées. Veuillez réessayer ou nous contacter par e-mail.";
+    } finally {
+        clearTimeout(minuterie);
+        envoiEnCours = false;
+        actualiserBoutonDevis();
+    }
 });
 
 let timerMessage;
